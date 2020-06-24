@@ -71,8 +71,8 @@ export default {
           .post("https://warm-badlands-86536.herokuapp.com/utilisateur", {
             email: this.mail,
             password: this.mdp,
-            prenom: this.Prenom,
-            nom: this.Nom
+            prenom: this.prenom,
+            nom: this.nom
           })
           .then(res => {
             console.log(res.data);
