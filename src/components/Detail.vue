@@ -163,7 +163,7 @@ export default {
             this.$route.params.token
         )
         .then(res => {
-          console.log("Données" + res.data);
+          console.log("Données" + res);
           this.center.lat = res.data.x;
           this.center.lng = res.data.y;
           this.positionCentre.lat = res.data.x;
