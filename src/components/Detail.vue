@@ -18,7 +18,7 @@
       <l-tile-layer :url="url"></l-tile-layer>
       <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
     </l-map>
-    {{events}}
+    {{events.titre}}
     <div id="data">
       <h2>Météo de {{meteod.name}}</h2>
       <span>Tendance : {{meteod.weather[0].description}}</span>
