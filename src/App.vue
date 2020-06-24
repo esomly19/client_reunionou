@@ -100,6 +100,7 @@ export default {
     },
     seDeconnecter() {
       localStorage.removeItem("jwt");
+      localStorage.removeItem("id");
       console.log(localStorage.getItem("jwt"));
       this.connected = false;
       this.$router.push({ name: "Home" });
