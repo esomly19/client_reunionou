@@ -58,6 +58,8 @@ export default {
       this.$router.push({ path: "/connexion" });
     },
     newAccount() {
+      console.log("PRENOM : " + this.prenom);
+      console.log("nom : " + this.nom);
       if (
         this.mail === null ||
         this.mail === "" ||
