@@ -18,6 +18,7 @@
       <l-tile-layer :url="url"></l-tile-layer>
       <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
     </l-map>
+    <P>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah</P>
     {{events.titre}}
     <div id="data">
       <h2>Météo de {{meteod.name}}</h2>
