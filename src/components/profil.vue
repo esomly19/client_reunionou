@@ -41,7 +41,10 @@ export default {
   methods: {
     recupeinfouser() {
       axios
-        .get("http://localhost:3000/profiluser/" + localStorage.getItem("id"))
+        .get(
+          "https://warm-badlands-86536.herokuapp.com/profiluser/" +
+            localStorage.getItem("id")
+        )
         .then(res => {
           console.log("Données" + res.data);
           this.profil = res.data.user;
@@ -53,7 +56,10 @@ export default {
     },
     recupeeventsuser() {
       axios
-        .get("http://localhost:3000/eventuser/" + localStorage.getItem("id"))
+        .get(
+          "https://warm-badlands-86536.herokuapp.com/eventuser/" +
+            localStorage.getItem("id")
+        )
         .then(res => {
           console.log("Données" + res.data);
           this.events = res.data.events;

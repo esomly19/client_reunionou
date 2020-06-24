@@ -29,7 +29,7 @@ export default {
   methods: {
     recupevents() {
       axios
-        .get("http://localhost:3000/events")
+        .get("https://warm-badlands-86536.herokuapp.com/events")
         .then(res => {
           console.log(res.data);
           this.events = res.data;

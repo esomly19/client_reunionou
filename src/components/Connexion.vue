@@ -52,7 +52,7 @@ export default {
         this.$modal.show("err");
       } else {
         axios
-          .post("http://localhost:3000/connect", {
+          .post("https://warm-badlands-86536.herokuapp.com/connect", {
             email: this.mail,
             password: this.mdp
           })

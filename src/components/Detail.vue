@@ -105,7 +105,9 @@ export default {
       x: 0,
       y: 0,
       events: null,
-      message: "localhost:8080/evenement/" + this.$route.params.token,
+      message:
+        "https://warm-badlands-86536.herokuapp.com/evenement/" +
+        this.$route.params.token,
       items: null,
       comments: null,
       name: "",
@@ -156,7 +158,10 @@ export default {
     },
     recupevents() {
       axios
-        .get("http://localhost:3000/event/" + this.$route.params.token)
+        .get(
+          "https://warm-badlands-86536.herokuapp.com/event/" +
+            this.$route.params.token
+        )
         .then(res => {
           console.log("Données" + res.data);
           this.center.lat = res.data.x;
@@ -174,7 +179,10 @@ export default {
     },
     participants() {
       axios
-        .get("http://localhost:3000/participants/" + this.$route.params.token)
+        .get(
+          "https://warm-badlands-86536.herokuapp.com/participants/" +
+            this.$route.params.token
+        )
         .then(res => {
           console.log("Données" + res.data);
           this.items = res.data;
@@ -186,7 +194,10 @@ export default {
     },
     commentaires() {
       axios
-        .get("http://localhost:3000/commentaires/" + this.$route.params.token)
+        .get(
+          "https://warm-badlands-86536.herokuapp.com/commentaires/" +
+            this.$route.params.token
+        )
         .then(res => {
           console.log("Données" + res.data);
           this.comments = res.data;
@@ -198,7 +209,7 @@ export default {
     },
     commenter() {
       axios
-        .post("http://localhost:3000/comment", {
+        .post("https://warm-badlands-86536.herokuapp.com/comment", {
           nom: this.name,
           token: this.$route.params.token,
           commentaire: this.description

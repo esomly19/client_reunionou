@@ -86,7 +86,7 @@ export default {
         document.write("Navigateur inconnu.");
       } else {
         axios
-          .post("http://localhost:3000/log", {
+          .post("https://warm-badlands-86536.herokuapp.com/log", {
             navigateur: browser,
             plateform: navigator.platform
           })

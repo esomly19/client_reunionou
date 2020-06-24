@@ -63,7 +63,10 @@ export default {
   methods: {
     recupevents() {
       axios
-        .get("http://localhost:3000/event/" + this.$route.params.token)
+        .get(
+          "https://warm-badlands-86536.herokuapp.com/event/" +
+            this.$route.params.token
+        )
         .then(res => {
           console.log("Données" + res.data);
           this.events = res.data;
@@ -78,7 +81,7 @@ export default {
     },
     participer() {
       axios
-        .post("http://localhost:3000/participe", {
+        .post("https://warm-badlands-86536.herokuapp.com/participe", {
           nom: this.name,
           token: this.$route.params.token
         })
