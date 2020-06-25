@@ -6,20 +6,20 @@
 
 <script>
 import axios from "axios";
-import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
-import { Icon, icon } from "leaflet";
-delete Icon.Default.prototype._getIconUrl;
-Icon.Default.mergeOptions({
+//import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+//import { Icon, icon } from "leaflet";
+//delete Icon.Default.prototype._getIconUrl;
+/*Icon.Default.mergeOptions({
   iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
   iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png")*/
 });
 export default {
   name: "eventlist",
   components: {
-    LMap,
-    LTileLayer,
-    LMarker
+   // LMap,
+  //  LTileLayer,
+  //  LMarker
   },
   data() {
     return {
