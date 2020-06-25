@@ -18,24 +18,17 @@
       v-clipboard:error="onError"
     >Partager</button>
     <p>{{events}}</p>
-    <ul id="example-1">
-      <li v-for="item in items" :key="item.nom">{{ item.nom }}</li>
-    </ul>
-    {{comments}}
+
+    <p>{{comments}}</p>
     <div>
-      <ul id="example-1">
-        <li
-          v-for="comment in comments"
-          :key="comment.nom"
-        >{{ comment.nom }}{{ comment.commentaire }}</li>
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-toggle="modal"
-          data-target="#myModal"
-          data-backdrop="true"
-        >Commenter</button>
-      </ul>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#myModal"
+        data-backdrop="true"
+      >Commenter</button>
+
       <div
         class="modal fade"
         id="myModal"
