@@ -20,6 +20,9 @@
     <p>{{events}}</p>
 
     <p>{{comments}}</p>
+    <ul>
+      <li v-for="comment in comments" :key="comment.nom">{{ comment.nom }}{{ comment.commentaire }}</li>
+    </ul>
     <div>
       <button
         type="button"
