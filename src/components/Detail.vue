@@ -18,19 +18,24 @@
       v-clipboard:error="onError"
     >Partager</button>
     <p>{{events}}</p>
+    <div id="data">
+      <h2>Météo de {{meteod.name}}</h2>
+      <span>Tendance : {{meteod.weather[0].description}}</span>
+      <hr />
+      <span>Temperature : {{meteod.main.temp}}</span>
+      <hr />
+      <span>Pression : {{meteod.main.pressure}}hPa</span>
+      <hr />
+      <span>Pression : {{meteod.main.humidity}}%</span>
+      <hr />
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
-//import { Icon, icon } from "leaflet";
-//delete Icon.Default.prototype._getIconUrl;
-/*Icon.Default.mergeOptions({
-  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-  iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png")
-});*/
+
 export default {
   name: "eventlist",
   components: {
@@ -59,11 +64,6 @@ export default {
         lat: 0,
         lng: 0
       },
-      /* icon: icon({
-        iconUrl: "http://pngimg.com/uploads/gps/gps_PNG74.png",
-        iconSize: [32, 37],
-        iconAnchor: [16, 37]
-      }),*/
       center: {
         lat: 0,
         lng: 0
@@ -108,7 +108,7 @@ export default {
           this.positionCentre.lng = res.data.y;
           this.ville = res.data.ville;
           this.events = res.data;
-          //this.meteo();
+          this.meteo();
         })
         .catch(err => {
           console.log("CASSE");
