@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah</p>
     <div class="eventlist">
       <button
         type="button"
@@ -239,4 +238,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+* {
+  background-color: red;
+}
 </style>
