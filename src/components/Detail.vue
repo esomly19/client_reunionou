@@ -21,6 +21,7 @@
     <ul id="example-1">
       <li v-for="item in items" :key="item.nom">{{ item.nom }}</li>
     </ul>
+    {{comments}}
     <div>
       <ul id="example-1">
         <li
