@@ -192,7 +192,7 @@ export default {
             this.$route.params.token
         )
         .then(res => {
-          console.log("Données" + res.data);
+          console.log("Données commentaires " + res.data);
           this.comments = res.data;
         })
         .catch(err => {
