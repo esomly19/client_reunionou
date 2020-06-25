@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="eventlist">
     <l-map
       style="height: 400px;  width:100%"
       :zoom="zoom"
