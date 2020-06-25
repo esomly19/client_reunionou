@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>ok</p>
+    <p>{{events}}</p>
   </div>
 </template>
 
@@ -144,8 +144,8 @@ export default {
     }
   },
   mounted() {
-    /* this.recupevents();
-    this.participants();
+    this.recupevents();
+    /* this.participants();
     this.commentaires();*/
   },
   computed: {}
