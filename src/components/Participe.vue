@@ -1,46 +1,48 @@
 <template>
-  <div class="eventlist">
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#myModal"
-      data-backdrop="true"
-    >Launch demo modal</button>
+  <div>
+    <div class="eventlist">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#myModal"
+        data-backdrop="true"
+      >Launch demo modal</button>
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="myModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <input
-              type="text"
-              id="name"
-              v-model="name"
-              name="name"
-              required
-              minlength="4"
-              maxlength="8"
-              size="10"
-              placeholder="nom"
-            />
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success" v-on:click="participer">Participer</button>
-            <button type="button" class="btn btn-danger">Ne pas participer</button>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input
+                type="text"
+                id="name"
+                v-model="name"
+                name="name"
+                required
+                minlength="4"
+                maxlength="8"
+                size="10"
+                placeholder="nom"
+              />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" v-on:click="participer">Participer</button>
+              <button type="button" class="btn btn-danger">Ne pas participer</button>
+            </div>
           </div>
         </div>
       </div>
