@@ -6,7 +6,7 @@
     "dev": "node build/dev-server.js",
     "postinstall": "if test \"$NODE_ENV\" = \"production\" ; then npm run build ; fi ",
     "start": "node server.js",
-    "build": "vue-cli-service build",
+    "build": "cross-env NODE_ENV=production browserify -g envify src/main.js | uglifyjs -c warnings=false -m > dist/build.js",
     "lint": "eslint --ext .js,.vue src",
     "server": "nodemon server.js"
   },
