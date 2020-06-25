@@ -31,7 +31,7 @@
           type="button"
           class="btn btn-primary"
           data-toggle="modal"
-          data-target="#exampleModal"
+          data-target="#myModal"
           data-backdrop="true"
         >Commenter</button>
       </ul>
