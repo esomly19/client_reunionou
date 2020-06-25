@@ -1,5 +1,12 @@
 <template>
   <div>
+    <button
+      type="button"
+      class="btn btn-primary"
+      v-clipboard:copy="message"
+      v-clipboard:success="onCopy"
+      v-clipboard:error="onError"
+    >Partager</button>
     <p>{{events}}</p>
   </div>
 </template>
