@@ -144,9 +144,9 @@ export default {
     }
   },
   mounted() {
-    this.recupevents();
+    /* this.recupevents();
     this.participants();
-    this.commentaires();
+    this.commentaires();*/
   },
   computed: {}
 };
