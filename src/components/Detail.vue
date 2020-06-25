@@ -36,6 +36,18 @@
         >Commenter</button>
       </ul>
     </div>
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" v-on:click="commenter">Poster</button>
+      </div>
+    </div>
   </div>
 </template>
 
