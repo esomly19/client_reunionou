@@ -42,11 +42,11 @@ export default {
         lat: 0,
         lng: 0
       },
-      icon: icon({
+      /* icon: icon({
         iconUrl: "http://pngimg.com/uploads/gps/gps_PNG74.png",
         iconSize: [32, 37],
         iconAnchor: [16, 37]
-      }),
+      }),*/
       center: {
         lat: 0,
         lng: 0
