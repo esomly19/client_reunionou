@@ -107,7 +107,7 @@ export default {
           this.positionCentre.lng = res.data.y;
           this.ville = res.data.ville;
           this.events = res.data;
-          this.meteo();
+          //this.meteo();
         })
         .catch(err => {
           console.log("CASSE");
