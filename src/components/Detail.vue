@@ -1,5 +1,15 @@
 <template>
   <div>
+    <l-map
+      style="height: 400px;  width:100%"
+      :zoom="zoom"
+      :center="center"
+      :markerZoomAnimation="true"
+      attribution="ok"
+    >
+      <l-tile-layer :url="url"></l-tile-layer>
+      <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
+    </l-map>
     <button
       type="button"
       class="btn btn-primary"
@@ -13,7 +23,7 @@
 
 <script>
 import axios from "axios";
-//import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 //import { Icon, icon } from "leaflet";
 //delete Icon.Default.prototype._getIconUrl;
 /*Icon.Default.mergeOptions({
@@ -24,9 +34,9 @@ import axios from "axios";
 export default {
   name: "eventlist",
   components: {
-    // LMap,
-    //  LTileLayer,
-    //  LMarker
+    LMap,
+    LTileLayer,
+    LMarker
   },
   data() {
     return {
