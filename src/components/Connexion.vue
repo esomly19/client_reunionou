@@ -59,7 +59,7 @@ export default {
           .then(res => {
             console.log(res.data);
             localStorage.setItem("jwt", res.data.token);
-            localStorage.setItem("id", res.data);
+            localStorage.setItem("id", res.data.id);
             console.log(localStorage);
             this.$router.push({ name: "Home" });
           })
