@@ -8,16 +8,16 @@
       </ul>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../assets/img/cal.jpg" alt="Los Angeles" width="100%" height="100%" />
+          <img src="../assets/img/reun.jpg" alt="Chicago" width="100%" height="100%" />
           <div class="carousel-caption">
-            <h3>Indiquez une date !</h3>
+            <h3>Organiser des réunions simplement !</h3>
             <p>Grâce à l'outil reunionou.app</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../assets/img/reun.jpg" alt="Chicago" width="100%" height="100%" />
+          <img src="../assets/img/cal.jpg" alt="Los Angeles" width="100%" height="100%" />
           <div class="carousel-caption">
-            <h3>Organiser des réunions simplement !</h3>
+            <h3>Indiquez une date !</h3>
             <p>Grâce à l'outil reunionou.app</p>
           </div>
         </div>

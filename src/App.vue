@@ -23,7 +23,7 @@
           <button
             v-if="isConnected()"
             type="button"
-            class="btn btn-primary btn-sm"
+            class="nav-item nav-link"
             v-on:click="creer"
           >Créer un événement</button>
         </div>
