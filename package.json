@@ -2,14 +2,13 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "12.14.1"
-  },
   "scripts": {
     "dev": "node build/dev-server.js",
+    "postinstall": "if test \"$NODE_ENV\" = \"production\" ; then npm run build ; fi ",
     "start": "node server.js",
     "build": "vue-cli-service build",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "eslint --ext .js,.vue src",
+    "server": "nodemon server.js"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.10.0",
@@ -22,7 +21,6 @@
     "geojson-path-finder": "^1.5.2",
     "jquery": "^3.5.1",
     "leaflet": "^1.6.0",
-    "node-sass": "^4.14.1",
     "popper.js": "^1.16.1",
     "vue": "^2.6.11",
     "vue-clipboard2": "^0.3.1",
