@@ -1,21 +1,38 @@
 <template>
   <div class="card" v-on:click="detail(soro.token)">
-    <figure class="card__thumb">
-      <l-map
-        style="height: 400px;  width:100%"
-        :zoom="zoom"
-        :center="center"
-        :markerZoomAnimation="true"
-        attribution="ok"
-      >
-        <l-tile-layer :url="url"></l-tile-layer>
-        <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
-      </l-map>
-      <figcaption class="card__caption">
-        <h2 class="card__title">{{soro.titre}}</h2>
-        <p class="card__snippet">{{soro.description}}</p>
-      </figcaption>
-    </figure>
+<div class="wrapper">
+      <div class="date">
+        <span class="day">12</span>
+        <span class="month">Aug</span>
+        <span class="year">2016</span>
+      </div>
+     <div class="data">
+        <div class="content">
+          <span class="author">Jane Doe</span>
+    <l-map
+      style="height: 400px;  width:100%"
+      :zoom="zoom"
+      :center="center"
+      :markerZoomAnimation="true"
+      attribution="ok"
+    >
+      <l-tile-layer :url="url"></l-tile-layer>
+      <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
+    </l-map>
+
+    <h2 class="title">{{soro.titre}}</h2>
+    <p class="text">{{soro.description}}</p>
+  <label for="show-menu" class="menu-button"><span></span></label>
+        </div>        
+        <input type="checkbox" id="show-menu" />
+        <ul class="menu-content">
+          <li>
+            <a href="#" class="fa fa-bookmark-o"></a>
+          </li>
+          <li><a href="#" class="fa fa-heart-o"><span>47</span></a></li>
+          <li><a href="#" class="fa fa-comment-o"><span>8</span></a></li>
+        </ul>
+  </div>
   </div>
 </template>
 <script>
@@ -62,107 +79,265 @@ export default {
 };
 </script>
 <style scoped>
-.card {
-  width: 300px;
-  margin: 10px;
-  background-color: white;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
-}
-.card:hover .card__caption {
-  top: 50%;
-  transform: translateY(-50%);
-}
-.card:hover .card__image {
-  transform: translateY(-10px);
-}
-.card:hover .card__thumb::after {
-  top: 0;
-}
-.card:hover .card__snippet {
-  margin: 20px 0;
-}
-.card__thumb {
-  position: relative;
-  max-height: 500px;
-  overflow: hidden;
-}
-.card__thumb::after {
-  position: absolute;
-  top: calc(100% - 140px);
-  display: block;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.5) 40%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transition: 0.3s;
-}
-.card__image {
-  transition: 0.5s ease-in-out;
-}
-.card__caption {
-  position: absolute;
-  top: calc(100% - 110px);
-  z-index: 1;
-  padding: 0 20px;
-  color: white;
-  text-align: center;
-  transition: 0.3s;
-}
-.card__title {
-  display: -webkit-box;
-  max-height: 85px;
-  overflow: hidden;
-  font-family: "Playfair Display", serif;
-  font-size: 23px;
-  line-height: 28px;
-  text-shadow: 0px 1px 5px black;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-.card__snippet {
-  display: -webkit-box;
-  max-height: 150px;
-  margin: 60px 0;
-  overflow: hidden;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 20px;
-  text-overflow: ellipsis;
-  transition: 0.5s ease-in-out;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-}
-.card__button {
-  display: inline-block;
-  padding: 10px 20px;
-  color: white;
-  border: 1px solid white;
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: 0.3s;
-}
-.card__button:hover {
-  color: black;
-  background-color: white;
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+* {
+  box-sizing: border-box;
 }
 
-.disclaimer {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
+body {
+  background-color: #f1f1f1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
 }
-.disclaimer__link {
-  color: #755d87;
+
+a {
   text-decoration: none;
 }
+
+h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+}
+
+.row {
+  max-width: 900px;
+  margin: 50px auto 0;
+}
+
+.card {
+  float: left;
+  padding: 0 1.7rem;
+  width: 50%;
+}
+.card .menu-content {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.card .menu-content::before, .card .menu-content::after {
+  content: "";
+  display: table;
+}
+.card .menu-content::after {
+  clear: both;
+}
+.card .menu-content li {
+  display: inline-block;
+}
+.card .menu-content a {
+  color: #fff;
+}
+.card .menu-content span {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: "Open Sans";
+  transform: translate(-50%, 0);
+}
+.card .wrapper {
+  background-color: #fff;
+  min-height: 540px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+}
+.card .wrapper:hover .data {
+  transform: translateY(0);
+}
+.card .data {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(calc(70px + 1em));
+  transition: transform 0.3s;
+}
+.card .data .content {
+  padding: 1em;
+  position: relative;
+  z-index: 1;
+}
+.card .author {
+  font-size: 12px;
+}
+.card .title {
+  margin-top: 10px;
+}
+.card .text {
+  height: 70px;
+  margin: 0;
+}
+.card input[type=checkbox] {
+  display: none;
+}
+.card input[type=checkbox]:checked + .menu-content {
+  transform: translateY(-60px);
+}
+
+.example-1 .wrapper {
+  background: url(https://hd.unsplash.com/photo-1463415268136-e52a5af54519) center/cover no-repeat;
+}
+.example-1 .date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #77d7b9;
+  color: #fff;
+  padding: 0.8em;
+}
+.example-1 .date span {
+  display: block;
+  text-align: center;
+}
+.example-1 .date .day {
+  font-weight: 700;
+  font-size: 24px;
+  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+.example-1 .date .month {
+  text-transform: uppercase;
+}
+.example-1 .date .month,
+.example-1 .date .year {
+  font-size: 12px;
+}
+.example-1 .content {
+  background-color: #fff;
+  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+.example-1 .title a {
+  color: gray;
+}
+.example-1 .menu-button {
+  position: absolute;
+  z-index: 999;
+  top: 16px;
+  right: 16px;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.example-1 .menu-button span {
+  width: 5px;
+  height: 5px;
+  background-color: gray;
+  color: gray;
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+}
+.example-1 .menu-button span::after, .example-1 .menu-button span::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: currentColor;
+  position: absolute;
+  border-radius: 50%;
+}
+.example-1 .menu-button span::before {
+  left: -10px;
+}
+.example-1 .menu-button span::after {
+  right: -10px;
+}
+.example-1 .menu-content {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  transition: transform 0.3s;
+  transform: translateY(0);
+}
+.example-1 .menu-content li {
+  width: 33.333333%;
+  float: left;
+  background-color: #77d7b9;
+  height: 60px;
+  position: relative;
+}
+.example-1 .menu-content a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+.example-1 .menu-content span {
+  top: -10px;
+}
+
+.example-2 .wrapper {
+  background: url(https://wallpaperdoc.xyz/wp-content/uploads/2016/07/Stranger-Things-Bicycle-Lights-Children.jpg) center/cover no-repeat;
+}
+.example-2 .wrapper:hover .menu-content span {
+  transform: translate(-50%, -10px);
+  opacity: 1;
+}
+.example-2 .header {
+  color: #fff;
+  padding: 1em;
+}
+.example-2 .header::before, .example-2 .header::after {
+  content: "";
+  display: table;
+}
+.example-2 .header::after {
+  clear: both;
+}
+.example-2 .header .date {
+  float: left;
+  font-size: 12px;
+}
+.example-2 .menu-content {
+  float: right;
+}
+.example-2 .menu-content li {
+  margin: 0 5px;
+  position: relative;
+}
+.example-2 .menu-content span {
+  transition: all 0.3s;
+  opacity: 0;
+}
+.example-2 .data {
+  color: #fff;
+  transform: translateY(calc(70px + 4em));
+}
+.example-2 .title a {
+  color: #fff;
+}
+.example-2 .button {
+  display: block;
+  width: 100px;
+  margin: 2em auto 1em;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1;
+  position: relative;
+  font-weight: 700;
+}
+.example-2 .button::after {
+  content: "→";
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: all 0.3s;
+}
+.example-2 .button:hover::after {
+  transform: translate(5px, -50%);
+  opacity: 1;
+}
+
+/*# sourceMappingURL=css.css.map */
+
 </style>
