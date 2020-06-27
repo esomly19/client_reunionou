@@ -60,11 +60,11 @@ body {
   background: #fff;
 }
 .conatiner {
-  border-spacing: 50px;
   width: 100%;
   height: 500px;
 }
 .wrap {
+  border-spacing: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
