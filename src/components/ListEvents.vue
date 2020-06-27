@@ -109,33 +109,41 @@ body {
   -ms-flex-direction: row;
   flex-direction: row;
 }
-.box {
-  margin: 10px;
+.card {
   width: 300px;
-  height: 490px;
-  text-align: center;
-  border-radius: 3px;
-  -webkit-transition: 200ms ease-in-out;
-  -o-transition: 200ms ease-in-out;
-  transition: 200ms ease-in-out;
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  background: rgba(126, 214, 192, 0.6);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
 }
-.box:hover {
+.card:hover {
   margin-bottom: -10px;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
-.box h1 {
-  color: black;
-  padding: 30px;
-  margin-top: 100px;
-  text-align: center;
-  font-weight: 100;
-  font-size: 25px;
-  background: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+.card__title {
+  display: -webkit-box;
+  max-height: 85px;
+  overflow: hidden;
+  font-family: "Playfair Display", serif;
+  font-size: 23px;
+  line-height: 28px;
+  text-shadow: 0px 1px 5px black;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.card__snippet {
+  display: -webkit-box;
+  max-height: 150px;
+  margin: 60px 0;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  transition: 0.5s ease-in-out;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 </style>

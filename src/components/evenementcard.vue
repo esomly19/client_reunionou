@@ -1,8 +1,6 @@
 <template>
-  <div class="box one" v-on:click="detail(soro.token)">
-    <div class="poster p1">
-      <h4>{{soro.titre}}</h4>
-
+  <div class="card" v-on:click="detail(soro.token)">
+    <figure class="card__thumb">
       <l-map
         style="height: 400px;  width:100%"
         :zoom="zoom"
@@ -13,8 +11,11 @@
         <l-tile-layer :url="url"></l-tile-layer>
         <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
       </l-map>
-      <p>{{soro.description}}</p>
-    </div>
+      <figcaption class="card__caption">
+        <h2 class="card__title">{{soro.titre}}</h2>
+        <p class="card__snippet">{{soro.description}}</p>
+      </figcaption>
+    </figure>
   </div>
 </template>
 <script>
