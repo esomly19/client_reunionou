@@ -64,7 +64,6 @@ body {
   height: 500px;
 }
 .wrap {
-  border-spacing: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,6 +81,7 @@ body {
   flex-direction: row;
 }
 .cardmap {
+  border-spacing: 50px;
   padding: 10px;
   background: rgba(242, 246, 248, 1);
 }
