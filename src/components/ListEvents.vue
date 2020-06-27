@@ -55,35 +55,6 @@ body {
   padding-top: 20px;
 }
 
-.card-deck {
-  margin: 0 -15px;
-  justify-content: space-between;
-}
-
-.card-deck .card {
-  margin: 0 0 1rem;
-}
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .card-deck .card {
-    -ms-flex: 0 0 48.7%;
-    flex: 0 0 48.7%;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .card-deck .card {
-    -ms-flex: 0 0 32%;
-    flex: 0 0 32%;
-  }
-}
-
-@media (min-width: 992px) {
-  .card-deck .card {
-    -ms-flex: 0 0 24%;
-    flex: 0 0 24%;
-  }
-}
 body {
   font-family: "Roboto", sans-serif;
   background: #fff;
@@ -111,8 +82,11 @@ body {
 }
 .cardmap {
   padding: 10px;
-  width: 330px;
-  margin: 75px;
   background: rgba(242, 246, 248, 1);
+}
+div.polaroid {
+  width: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
 }
 </style>

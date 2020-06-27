@@ -1,17 +1,19 @@
 <template>
-  <div class="cardmap" v-on:click="detail(soro.token)">
-    <p style="justify-content: center;">{{soro.titre}}</p>
+  <div class="polaroid">
+    <div class="cardmap" v-on:click="detail(soro.token)">
+      <p style="justify-content: center;">{{soro.titre}}</p>
 
-    <l-map
-      style="height: 200px;  width:100%"
-      :zoom="zoom"
-      :center="center"
-      :markerZoomAnimation="true"
-      attribution="ok"
-    >
-      <l-tile-layer :url="url"></l-tile-layer>
-      <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
-    </l-map>
+      <l-map
+        style="height: 200px;  width:100%"
+        :zoom="zoom"
+        :center="center"
+        :markerZoomAnimation="true"
+        attribution="ok"
+      >
+        <l-tile-layer :url="url"></l-tile-layer>
+        <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
+      </l-map>
+    </div>
   </div>
 </template>
 <script>
