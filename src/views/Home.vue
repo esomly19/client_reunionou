@@ -10,7 +10,7 @@
         <div class="carousel-item active">
           <img src="../assets/img/cal.jpg" alt="Los Angeles" width="100%" height="50%" />
           <div class="carousel-caption">
-            <h3>Indiquez une date !</h3>
+            <h3 style="color:black">Indiquez une date !</h3>
             <p>Grâce à l'outil reunionou.app</p>
           </div>
         </div>
