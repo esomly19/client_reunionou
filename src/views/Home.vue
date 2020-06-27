@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div id="demo" width="100%" height="30%" class="carousel slide" data-ride="carousel">
+    <div id="demo" width="100%" height="10%" class="carousel slide" data-ride="carousel">
       <ul class="carousel-indicators">
         <li data-target="#demo" data-slide-to="0" class="active"></li>
         <li data-target="#demo" data-slide-to="1"></li>
