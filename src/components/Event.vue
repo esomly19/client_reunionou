@@ -175,6 +175,7 @@ ville:null,
         })
         .then(res => {
           console.log(res.data);
+          this.$router.push({ name: "Home" });
         })
         .catch(err => {
           console.log(err);
