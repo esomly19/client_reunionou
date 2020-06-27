@@ -1,5 +1,5 @@
 <template>
-  <div class="card" v-on:click="detail(soro.token)">
+  <div class="example-1 card" v-on:click="detail(soro.token)">
 <div class="wrapper">
       <div class="date">
         <span class="day">12</span>
@@ -273,70 +273,7 @@ h1 {
   top: -10px;
 }
 
-.example-2 .wrapper {
-  background: url(https://wallpaperdoc.xyz/wp-content/uploads/2016/07/Stranger-Things-Bicycle-Lights-Children.jpg) center/cover no-repeat;
-}
-.example-2 .wrapper:hover .menu-content span {
-  transform: translate(-50%, -10px);
-  opacity: 1;
-}
-.example-2 .header {
-  color: #fff;
-  padding: 1em;
-}
-.example-2 .header::before, .example-2 .header::after {
-  content: "";
-  display: table;
-}
-.example-2 .header::after {
-  clear: both;
-}
-.example-2 .header .date {
-  float: left;
-  font-size: 12px;
-}
-.example-2 .menu-content {
-  float: right;
-}
-.example-2 .menu-content li {
-  margin: 0 5px;
-  position: relative;
-}
-.example-2 .menu-content span {
-  transition: all 0.3s;
-  opacity: 0;
-}
-.example-2 .data {
-  color: #fff;
-  transform: translateY(calc(70px + 4em));
-}
-.example-2 .title a {
-  color: #fff;
-}
-.example-2 .button {
-  display: block;
-  width: 100px;
-  margin: 2em auto 1em;
-  text-align: center;
-  font-size: 12px;
-  color: #fff;
-  line-height: 1;
-  position: relative;
-  font-weight: 700;
-}
-.example-2 .button::after {
-  content: "→";
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translate(0, -50%);
-  transition: all 0.3s;
-}
-.example-2 .button:hover::after {
-  transform: translate(5px, -50%);
-  opacity: 1;
-}
+
 
 /*# sourceMappingURL=css.css.map */
 
