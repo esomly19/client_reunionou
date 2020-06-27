@@ -1,8 +1,6 @@
 <template>
   <div class="polaroid">
     <div class="cardmap" v-on:click="detail(soro.token)">
-      <p style="justify-content: center;">{{soro.titre}}</p>
-
       <l-map
         style="height: 200px;  width:100%"
         :zoom="zoom"
@@ -13,6 +11,7 @@
         <l-tile-layer :url="url"></l-tile-layer>
         <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
       </l-map>
+      <p style="justify-content: center; font-family: 'Playfair Display', serif; ">{{soro.titre}}</p>
     </div>
   </div>
 </template>
