@@ -61,7 +61,7 @@ export default {
   computed: {}
 };
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .card {
   width: 300px;
   margin: 10px;
