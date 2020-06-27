@@ -24,7 +24,7 @@
         <div class="carousel-item">
           <img src="../assets/img/carte.jpg" alt="New York" width="100%" height="50%" />
           <div class="carousel-caption">
-            <h3>Indiquez uen adresse</h3>
+            <h3>Indiquez une adresse</h3>
             <p>Grâce à l'outil reunionou.app</p>
           </div>
         </div>
@@ -55,6 +55,9 @@ export default {
   height: 50%;
 }
 .carousel-caption {
+  transform: translateY(-50%);
+  bottom: 0;
+  top: 50%;
   color: black;
 }
 </style>
