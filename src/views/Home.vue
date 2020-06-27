@@ -54,4 +54,7 @@ export default {
   width: 100%;
   height: 50%;
 }
+.carousel-captio {
+  color: black;
+}
 </style>
