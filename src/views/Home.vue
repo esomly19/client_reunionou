@@ -55,9 +55,9 @@ export default {
   height: 100%;
 }
 .carousel-caption {
-  transform: translateY(-30%);
+  transform: translateY(-45%);
   bottom: 0;
-  top: 70%;
+  top: 50%;
   color: black;
 }
 </style>
