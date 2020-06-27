@@ -1,20 +1,17 @@
 <template>
-  <div class="box one" v-on:click="detail(soro.token)">
-    <div class="poster p1">
-      <h4>{{soro.titre}}</h4>
+  <div class="cardmap" v-on:click="detail(soro.token)">
+    <p>{{soro.titre}}</p>
 
-      <l-map
-        style="height: 400px;  width:100%"
-        :zoom="zoom"
-        :center="center"
-        :markerZoomAnimation="true"
-        attribution="ok"
-      >
-        <l-tile-layer :url="url"></l-tile-layer>
-        <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
-      </l-map>
-      <p>{{soro.description}}</p>
-    </div>
+    <l-map
+      style="height: 200px;  width:100%"
+      :zoom="zoom"
+      :center="center"
+      :markerZoomAnimation="true"
+      attribution="ok"
+    >
+      <l-tile-layer :url="url"></l-tile-layer>
+      <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
+    </l-map>
   </div>
 </template>
 <script>

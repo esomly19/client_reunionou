@@ -109,33 +109,11 @@ body {
   -ms-flex-direction: row;
   flex-direction: row;
 }
-.box {
-  margin: 10px;
-  width: 300px;
-  height: 490px;
-  text-align: center;
-  border-radius: 3px;
-  -webkit-transition: 200ms ease-in-out;
-  -o-transition: 200ms ease-in-out;
-  transition: 200ms ease-in-out;
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  background: rgba(126, 214, 192, 0.6);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+.cardmap {
+  padding: 10px;
+  background: rgba(242, 246, 248, 1);
 }
-.box:hover {
-  margin-bottom: -10px;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-}
-.box h1 {
-  color: black;
-  padding: 30px;
-  margin-top: 100px;
-  text-align: center;
-  font-weight: 100;
-  font-size: 25px;
-  background: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+p {
+  justify-content: center;
 }
 </style>
