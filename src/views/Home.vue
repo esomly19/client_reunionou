@@ -8,24 +8,24 @@
       </ul>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../assets/img/cal.jpg" alt="Los Angeles" width="100%" height="100%" />
+          <img src="../assets/img/cal.jpg" alt="Los Angeles" width="100%" height="80%" />
           <div class="carousel-caption">
-            <h3>Los Angeles</h3>
-            <p>We had such a great time in LA!</p>
+            <h3>Indiquez une date !</h3>
+            <p>Grâce à l'outil reunionou.app</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../assets/img/reun.jpg" alt="Chicago" width="100%" height="100%" />
+          <img src="../assets/img/reun.jpg" alt="Chicago" width="100%" height="80%" />
           <div class="carousel-caption">
-            <h3>Chicago</h3>
-            <p>Thank you, Chicago!</p>
+            <h3>Organiser des réunions simplement !</h3>
+            <p>Grâce à l'outil reunionou.app</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../assets/img/carte.jpg" alt="New York" width="100%" height="100%" />
+          <img src="../assets/img/carte.jpg" alt="New York" width="100%" height="80%" />
           <div class="carousel-caption">
-            <h3>New York</h3>
-            <p>We love the Big Apple!</p>
+            <h3>Indiquez uen adresse</h3>
+            <p>Grâce à l'outil reunionou.app</p>
           </div>
         </div>
       </div>
@@ -49,9 +49,9 @@ export default {
 </script>
 <style>
 .carousel-inner img {
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 </style>
