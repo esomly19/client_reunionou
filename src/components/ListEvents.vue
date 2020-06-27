@@ -60,6 +60,7 @@ body {
   background: #fff;
 }
 .conatiner {
+  border-spacing: 5px;
   width: 100%;
   height: 500px;
 }
