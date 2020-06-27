@@ -109,33 +109,76 @@ body {
   -ms-flex-direction: row;
   flex-direction: row;
 }
-.box {
+.card {
+  position: relative;
+
+  height: 170px;
+  background: url("https://image.freepik.com/free-vector/colorful-gradient-liquid-shapes-background_23-2148250143.jpg"),
+    #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 25px;
   margin: 10px;
-  width: 300px;
-  height: 490px;
-  text-align: center;
-  border-radius: 3px;
-  -webkit-transition: 200ms ease-in-out;
-  -o-transition: 200ms ease-in-out;
-  transition: 200ms ease-in-out;
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  background: rgba(126, 214, 192, 0.6);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: 0.25s ease-in;
 }
-.box:hover {
-  margin-bottom: -10px;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+
+.card .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 170px;
+  background: linear-gradient(
+    120.55deg,
+    rgba(39, 39, 39, 0.38) 0%,
+    rgba(39, 39, 39, 0.2394) 100%
+  );
+  border-radius: 25px;
 }
-.box h1 {
-  color: black;
-  padding: 30px;
-  margin-top: 100px;
-  text-align: center;
-  font-weight: 100;
-  font-size: 25px;
-  background: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+
+.card .content {
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
+}
+
+.card .content h4 {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: #f2f2f2;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.card .content h6 {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #f2f2f2;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.card .fav {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.card .fav i {
+  color: white;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card:hover {
+  background-position: top;
 }
 </style>

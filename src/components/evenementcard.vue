@@ -1,6 +1,7 @@
 <template>
-  <div class="box one" v-on:click="detail(soro.token)">
-    <div class="poster p1">
+  <div class="card" v-on:click="detail(soro.token)">
+    <div class="overlay"></div>
+    <div class="content">
       <h4>{{soro.titre}}</h4>
 
       <l-map
