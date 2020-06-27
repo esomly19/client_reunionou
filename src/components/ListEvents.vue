@@ -111,11 +111,8 @@ body {
 }
 .cardmap {
   padding: 10px;
-  width: 250px;
-  margin: 10px;
+  width: 330px;
+  margin: 75px;
   background: rgba(242, 246, 248, 1);
-}
-p {
-  justify-content: center;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="cardmap" v-on:click="detail(soro.token)">
-    <p>{{soro.titre}}</p>
+    <p style="justify-content: center;">{{soro.titre}}</p>
 
     <l-map
       style="height: 200px;  width:100%"
