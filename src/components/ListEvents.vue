@@ -51,47 +51,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-body {
-  padding-top: 20px;
-}
-
-.card-deck {
-  margin: 0 -15px;
-  justify-content: space-between;
-}
-
-.card-deck .card {
-  margin: 0 0 1rem;
-}
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .card-deck .card {
-    -ms-flex: 0 0 48.7%;
-    flex: 0 0 48.7%;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .card-deck .card {
-    -ms-flex: 0 0 32%;
-    flex: 0 0 32%;
-  }
-}
-
-@media (min-width: 992px) {
-  .card-deck .card {
-    -ms-flex: 0 0 24%;
-    flex: 0 0 24%;
-  }
-}
-body {
-  font-family: "Roboto", sans-serif;
-  background: #fff;
-}
-.conatiner {
-  width: 100%;
-  height: 500px;
-}
 .wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -109,16 +68,70 @@ body {
   -ms-flex-direction: row;
   flex-direction: row;
 }
+body {
+  background-color: #e6e6e6;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
 .card {
   width: 300px;
   margin: 10px;
   background-color: white;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
 }
-.card:hover {
-  margin-bottom: -10px;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+.card:hover .card__caption {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.card:hover .card__image {
+  transform: translateY(-10px);
+}
+.card:hover .card__thumb::after {
+  top: 0;
+}
+.card:hover .card__snippet {
+  margin: 20px 0;
+}
+.card__thumb {
+  position: relative;
+  max-height: 500px;
+  overflow: hidden;
+}
+.card__thumb::after {
+  position: absolute;
+  top: calc(100% - 140px);
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: 0.3s;
+}
+.card__image {
+  transition: 0.5s ease-in-out;
+}
+.card__caption {
+  position: absolute;
+  top: calc(100% - 110px);
+  z-index: 1;
+  padding: 0 20px;
+  color: white;
+  text-align: center;
+  transition: 0.3s;
 }
 .card__title {
   display: -webkit-box;
@@ -132,7 +145,6 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-
 .card__snippet {
   display: -webkit-box;
   max-height: 150px;
@@ -146,4 +158,34 @@ body {
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
+.card__button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  border: 1px solid white;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.card__button:hover {
+  color: black;
+  background-color: white;
+}
+
+.disclaimer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+.disclaimer__link {
+  color: #755d87;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=levent.css.map */
 </style>
