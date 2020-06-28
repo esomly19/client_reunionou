@@ -22,6 +22,9 @@
             v-clipboard:error="onError"
           >Partager</button>
           <h1 class="text-center">{{events.titre}}</h1>
+          <p>{{events.description}}</p>
+          <p>{{events.date}}</p>
+          <p>{{events.iduser}}</p>
         </div>
         <div class="col-4 dr">
           <ul>
