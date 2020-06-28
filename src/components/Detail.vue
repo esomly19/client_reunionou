@@ -238,9 +238,11 @@ export default {
 }
 
 .dr {
+  border: 2px solid black;
+  height: 100%;
 }
 
 .ga {
-  border: 2px solid black;
+  height: 100%;
 }
 </style>
