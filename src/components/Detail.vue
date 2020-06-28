@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-8 ga">
           <l-map
-            style="height: 70%;  width:100%"
+            style="height: 800px;  width:100%"
             :zoom="zoom"
             :center="center"
             :markerZoomAnimation="true"
