@@ -21,7 +21,7 @@
             v-clipboard:success="onCopy"
             v-clipboard:error="onError"
           >Partager</button>
-          <h1 class="text-center">{{event.titre}}</h1>
+          <h1 class="text-center" :text="events.titre"></h1>
           <div id="calendar">
             <div id="calendar_header">
               <i class="icon-chevron-left"></i>
