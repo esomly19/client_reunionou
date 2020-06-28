@@ -21,7 +21,7 @@
             v-clipboard:success="onCopy"
             v-clipboard:error="onError"
           >Partager</button>
-          <h1 class="text-center" :text="events.titre"></h1>
+          <h1 class="text-center">{{events.titre}}</h1>
         </div>
         <div class="col-4 dr">
           <ul>
