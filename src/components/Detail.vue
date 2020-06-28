@@ -27,36 +27,6 @@
           <p>{{events.iduser}}</p>
         </div>
         <div class="col-4 dr">
-          <div class="comments">
-    <h2>Leave a comment below!</h2>
-
-    <div class="comments-form">
-      <form @submit.prevent="handleSubmit">
-        <ul>
-          <li>
-            <input
-              type="text"
-              placeholder="Name"
-              v-model="username"
-              required
-            >
-          </li>
-          <li>
-            <textarea
-              placeholder="Comment"
-              v-model="comment"
-              required
-            ></textarea>
-          </li>
-          <li>
-            <input
-              type="submit"
-              value="Post &#9998;"
-            >
-          </li>
-        </ul>
-      </form>
-    </div>
           <div class="comments-list">
             <div class="comment" v-for="comment in comments" :key="comment.nom">
               <h4>{{ comment.nom }} says</h4>
@@ -337,31 +307,5 @@ export default {
 }
 h4 {
   margin-top: 10px;
-}
-.comments {
-  width: 500px;
-  max-width: 80%;
-  background: #fff;
-  padding: 20px 30px;
-  border-radius: 5px;
-}
-
-ul {
-  list-style: none;
-  margin-left: -40px;
-}
-li {
-  margin-bottom: 15px;
-  border: 0;
-  border-radius: 5px;
-  padding: 10px 15px;
-  background: #448ef6;
-  color: #fff;
-  font-family: "Quicksand";
-  font-weight: bold;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background: #f5f5f5;
 }
 </style>
