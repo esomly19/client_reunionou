@@ -27,12 +27,14 @@
           <p>{{events.iduser}}</p>
         </div>
         <div class="col-4 dr">
-          <ul>
-            <li
-              v-for="comment in comments"
-              :key="comment.nom"
-            >{{ comment.nom }}{{ comment.commentaire }}</li>
-          </ul>
+          <div class="comments-list">
+            <div class="comment" v-for="comment in comments" :key="comment.nom">
+              <h4>{{ comment.nom }} says</h4>
+              <p>{{ comment.commentaire }}</p>
+              <p class="comment-time">{{ comment.date }}</p>
+            </div>
+          </div>
+
           <div>
             <button
               type="button"
@@ -280,5 +282,30 @@ export default {
 
 .ga {
   height: 100%;
+}
+.comments {
+  width: 500px;
+  max-width: 80%;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 5px;
+}
+
+.comments-list {
+  margin-top: 30px;
+}
+.comment {
+  position: relative;
+  border-top: 1px dotted #bbb;
+  padding: 10px 20px;
+}
+.comment-time {
+  position: absolute;
+  top: 2px;
+  right: 20px;
+  color: #777;
+}
+h4 {
+  margin-top: 10px;
 }
 </style>
