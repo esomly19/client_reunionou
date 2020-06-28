@@ -1,7 +1,7 @@
 <template>
   <div class="eventlist">
     <div class="row">
-      <div class="col-8">
+      <div class="col-8 ga">
         <l-map
           style="height: 400px;  width:100%"
           :zoom="zoom"
@@ -21,7 +21,7 @@
         >Partager</button>
         <p>{{events}}</p>
       </div>
-      <div class="col-4">
+      <div class="col-4 dr">
         <ul>
           <li
             v-for="comment in comments"
@@ -235,5 +235,12 @@ export default {
 
 .modal-backdrop.show {
   z-index: 100000 !important;
+}
+
+.dr {
+}
+
+.ga {
+  border: 2px solid black;
 }
 </style>
