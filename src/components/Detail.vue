@@ -1,68 +1,76 @@
 <template>
   <div class="eventlist">
-    <l-map
-      style="height: 400px;  width:100%"
-      :zoom="zoom"
-      :center="center"
-      :markerZoomAnimation="true"
-      attribution="ok"
-    >
-      <l-tile-layer :url="url"></l-tile-layer>
-      <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
-    </l-map>
-    <button
-      type="button"
-      class="btn btn-primary"
-      v-clipboard:copy="message"
-      v-clipboard:success="onCopy"
-      v-clipboard:error="onError"
-    >Partager</button>
-    <p>{{events}}</p>
+    <div class="row">
+      <div class="col-8">
+        <l-map
+          style="height: 400px;  width:100%"
+          :zoom="zoom"
+          :center="center"
+          :markerZoomAnimation="true"
+          attribution="ok"
+        >
+          <l-tile-layer :url="url"></l-tile-layer>
+          <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
+        </l-map>
+        <button
+          type="button"
+          class="btn btn-primary"
+          v-clipboard:copy="message"
+          v-clipboard:success="onCopy"
+          v-clipboard:error="onError"
+        >Partager</button>
+        <p>{{events}}</p>
+      </div>
+      <div class="col-4">
+        <ul>
+          <li
+            v-for="comment in comments"
+            :key="comment.nom"
+          >{{ comment.nom }}{{ comment.commentaire }}</li>
+        </ul>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#myModal"
+            data-backdrop="true"
+          >Commenter</button>
 
-    <ul>
-      <li v-for="comment in comments" :key="comment.nom">{{ comment.nom }}{{ comment.commentaire }}</li>
-    </ul>
-    <div>
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-toggle="modal"
-        data-target="#myModal"
-        data-backdrop="true"
-      >Commenter</button>
-
-      <div
-        class="modal fade"
-        id="myModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <input
-                type="text"
-                id="name"
-                v-model="name"
-                name="name"
-                required
-                minlength="4"
-                maxlength="8"
-                size="10"
-                placeholder="nom"
-              />
-              <textarea id="name" v-model="description" name="name" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-success" v-on:click="commenter">Poster</button>
+          <div
+            class="modal fade"
+            id="myModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <input
+                    type="text"
+                    id="name"
+                    v-model="name"
+                    name="name"
+                    required
+                    minlength="4"
+                    maxlength="8"
+                    size="10"
+                    placeholder="nom"
+                  />
+                  <textarea id="name" v-model="description" name="name" />
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" v-on:click="commenter">Poster</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
