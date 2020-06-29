@@ -297,6 +297,8 @@ export default {
 
 .comments-list {
   margin-top: 30px;
+  height: 70%;
+  overflow-y: hidden;
 }
 .comment {
   position: relative;
