@@ -12,7 +12,7 @@
   <p>
     <label for="name">Nom de l'événement</label>
     <input
-class="form-control"
+class="form-control"  id="validationDefault01"
       v-model="name"
       type="text"
       name="name"
