@@ -297,7 +297,7 @@ export default {
 
 .comments-list {
   margin-top: 30px;
-  height: 70%;
+  height: 50%;
   overflow-y: hidden;
 }
 .comment {
@@ -314,7 +314,7 @@ export default {
 h4 {
   margin-top: 10px;
 }
-.eventlist {
+html {
   height: 100%;
   overflow-y: hidden;
   width: 100%;
