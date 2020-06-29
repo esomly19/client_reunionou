@@ -27,7 +27,7 @@
           <p>{{events.iduser}}</p>
         </div>
         <div class="col-4 dr">
-          <div class="comments-list">
+          <div class="comments-list" id="comm">
             <div class="comment" v-for="comment in comments" :key="comment.nom">
               <h4>{{ comment.nom }} dit</h4>
               <p>{{ comment.commentaire }}</p>
@@ -82,7 +82,7 @@
             </div>
           </div>
           <div class="w-100"></div>
-          <div class="col-4 dr">
+          <div class="col-4 dr" id="parti">
             <div v-for="participant in participantes" :key="participant.nom">{{ participant.nom }}</div>
           </div>
         </div>
@@ -317,5 +317,14 @@ h4 {
   overflow-y: hidden;
   width: 100%;
   overflow-x: hidden;
+}
+
+#parti {
+  height: 30%;
+  overflow-y: hidden;
+}
+#comm {
+  height: 70%;
+  overflow-y: hidden;
 }
 </style>
