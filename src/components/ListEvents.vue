@@ -72,7 +72,7 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: flex-start;
-  justify-content: space-between;
+  margin-left: 25px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
