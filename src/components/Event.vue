@@ -76,7 +76,7 @@
       </div>
     </div>
     <p>
-      <button class="btn btn-primary" v-on:click="creeevent">Valider</button>
+      <button :disabled="verif" class="btn btn-primary" v-on:click="creeevent">Valider</button>
     </p>
   </div>
 </template>
@@ -216,6 +216,13 @@ export default {
         return "publique";
       } else {
         return "privé";
+      }
+    },
+    verif: function() {
+      if (this.publik || this.nom || this.description || this.adresse) {
+        return false;
+      } else {
+        return true;
       }
     }
   },
