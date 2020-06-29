@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-8 ga">
           <l-map
-            style="height: 800px;  width:100%"
+            style="height: 600px;  width:100%"
             :zoom="zoom"
             :center="center"
             :markerZoomAnimation="true"
@@ -311,5 +311,9 @@ export default {
 }
 h4 {
   margin-top: 10px;
+}
+.eventlist {
+  height: 100%;
+  overflow-y: hidden;
 }
 </style>
