@@ -315,5 +315,7 @@ h4 {
 .eventlist {
   height: 100%;
   overflow-y: hidden;
+  width: 100%;
+  overflow-x: hidden;
 }
 </style>
