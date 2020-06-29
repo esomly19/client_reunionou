@@ -36,10 +36,10 @@
         <label for="age">Date</label>
         <input class="form-control" id="age" v-model="date" type="date" name="age" min="0" required />
       </p>
-    </div>
-    <div class="custom-control custom-switch">
-      <input v-model="publik" type="checkbox" class="custom-control-input" id="customSwitch1" />
-      <label class="custom-control-label" for="customSwitch1">Evénément {{check}}</label>
+      <div class="custom-control custom-switch">
+        <input v-model="publik" type="checkbox" class="custom-control-input" id="customSwitch1" />
+        <label class="custom-control-label" for="customSwitch1">Evénément {{check}}</label>
+      </div>
     </div>
 
     <div class="form-row justify-content-center">
