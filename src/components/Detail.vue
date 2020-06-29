@@ -81,10 +81,10 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="w-100"></div>
-        <div class="col-4 dr">
-          <div v-for="participant in participantes" :key="participant.nom">{{ participant.nom }}</div>
+          <div class="w-100"></div>
+          <div class="col-4 dr">
+            <div v-for="participant in participantes" :key="participant.nom">{{ participant.nom }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -235,8 +235,8 @@ export default {
   },
   mounted() {
     this.recupevents();
-    this.participants();
     this.commentaires();
+    this.participants();
   },
   computed: {}
 };
