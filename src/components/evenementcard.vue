@@ -12,6 +12,7 @@
         <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
       </l-map>
       <p style="justify-content: center; font-family: 'Playfair Display', serif; ">{{soro.titre}}</p>
+      <div class="card-footer text-muted">{{soro.date}}</div>
     </div>
   </div>
 </template>
