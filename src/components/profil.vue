@@ -15,7 +15,7 @@
                 <h5 class="card-title">{{event.titre}}</h5>
                 {{event.description}} {{event.adresse}}
                 <br />
-                <a :click="info(event.token)" class="btn btn-primary">Plus d'info</a>
+                <button v-on:click="info(event.token)" class="btn btn-primary">Plus d'info</button>
                 <div class="card-footer text-muted">{{event.date}}</div>
               </div>
             </div>
