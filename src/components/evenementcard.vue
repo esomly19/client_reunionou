@@ -11,7 +11,7 @@
         <l-tile-layer :url="url"></l-tile-layer>
         <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
       </l-map>
-      <h5 class="card-title">{soro.titre}}</h5>
+      <h5 class="card-title text-center">{{soro.titre}}</h5>
       <div class="card-footer text-muted">{{soro.date}}</div>
     </div>
   </div>
