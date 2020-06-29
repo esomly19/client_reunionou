@@ -12,7 +12,7 @@
   <p>
     <label for="name">Nom de l'événement</label>
     <input
-      id="name"
+class="form-control"
       v-model="name"
       type="text"
       name="name"
