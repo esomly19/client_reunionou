@@ -1,93 +1,84 @@
 <template>
   <div class="event">
-
-
-  <p v-if="errors.length">
+    <form class="needs-validation" novalidate>
+      <!-- <p v-if="errors.length">
     <b>Please correct the following error(s):</b>
     <ul>
       <li  :key="error" v-for="error in errors">{{ error }}</li>
     </ul>
-  </p>
-
-  <p>
-    <label for="name">Nom de l'événement</label>
-    <input
-class="form-control"  id="validationDefault01"
-      v-model="name"
-      type="text"
-      name="name"
-    >
-  </p>
-  <p>
-    <label for="name">Description de l'événement</label>
-    <textarea
-      class="form-control" id="exampleFormControlTextarea1" rows="3"
-      v-model="description"
-      
-      name="name"
-    />
-  </p>
-
-  <p>
-    <label for="age">Date</label>
-    <input
-      id="age"
-      v-model="date"
-      type="date"
-      name="age"
-      min="0"
-    >
-  </p>
-
-
-
-<div class="custom-control custom-switch">
-  <input v-model="publik" type="checkbox" class="custom-control-input" id="customSwitch1" >
-  <label class="custom-control-label" for="customSwitch1" >Evénément {{check}}</label>
-</div>
-
-<div class="row">
-
-      <l-map  class="col-6" style="height: 500px;" :zoom="zoom" :center="center" :markerZoomAnimation="true" attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'>
-            <l-tile-layer :url="url"></l-tile-layer>
-            <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
-        
-        </l-map>
- <div  class="col-6">
-  
-  <input type="text" placeholder="Entrez votre adresse" v-model="adresse">
-  
-  <button class="button" v-on:click="getLocation">Marquer !</button>
-  <div v-if="wait">...</div>
-  <section v-if="erreur">
-    <p>Désolé, mais nous n'avons trouvé aucun résultat pour {{ adresse }}.</p>
-  </section>
-
-   <section v-if="resultats">
-      <div v-if="loading">Chargement...</div>
-    <div
-      v-else
-      v-for="poi in resultats" v-bind:key="poi.address"
-    >
-    <h2>Résultats pour {{ adresse }}</h2>
-    <input type="number" :value="positionCentre.lat" >
-  <input type="number" :value="positionCentre.lng" >
-        <div
-        v-if="poi.address.postcode">
-            <h3>{{ poi.address.postcode }} {{ poi.address.city }} {{ poi.address.suburb }}</h3>
+      </p>-->
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <p>
+            <label for="name">Nom de l'événement</label>
+            <input
+              class="form-control"
+              id="validationDefault01"
+              v-model="name"
+              type="text"
+              name="name"
+            />
+          </p>
+          <p>
+            <label for="name">Description de l'événement</label>
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              v-model="description"
+              name="name"
+            />
+          </p>
+          <div class="valid-feedback">Looks good!</div>
         </div>
-    </div>
-  </section>
-    
-</div>
-</div>
-  <p>
-    <button  v-on:click="creeevent"
+        <p>
+          <label for="age">Date</label>
+          <input id="age" v-model="date" type="date" name="age" min="0" />
+        </p>
+      </div>
+      <div class="custom-control custom-switch">
+        <input v-model="publik" type="checkbox" class="custom-control-input" id="customSwitch1" />
+        <label class="custom-control-label" for="customSwitch1">Evénément {{check}}</label>
+      </div>
 
-    >Valider</button>
-  </p>
+      <div class="row">
+        <l-map
+          class="col-6"
+          style="height: 500px;"
+          :zoom="zoom"
+          :center="center"
+          :markerZoomAnimation="true"
+        >
+          <l-tile-layer :url="url"></l-tile-layer>
+          <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
+        </l-map>
+        <div class="col-6">
+          <input type="text" placeholder="Entrez votre adresse" v-model="adresse" />
 
-</div>
+          <button class="button" v-on:click="getLocation">Marquer !</button>
+          <div v-if="wait">...</div>
+          <section v-if="erreur">
+            <p>Désolé, mais nous n'avons trouvé aucun résultat pour {{ adresse }}.</p>
+          </section>
+
+          <section v-if="resultats">
+            <div v-if="loading">Chargement...</div>
+            <div v-else v-for="poi in resultats" v-bind:key="poi.address">
+              <h2>Résultats pour {{ adresse }}</h2>
+              <input type="number" :value="positionCentre.lat" />
+              <input type="number" :value="positionCentre.lng" />
+              <div v-if="poi.address.postcode">
+                <h3>{{ poi.address.postcode }} {{ poi.address.city }} {{ poi.address.suburb }}</h3>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <p>
+        <button class="btn btn-primary" type="submit" v-on:click="creeevent">Valider</button>
+      </p>
+    </form>
+  </div>
 </template>
 <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
 <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
@@ -122,19 +113,18 @@ export default {
       wait: false,
       resultats: [],
       erreur: false,
-ville:null,
+      ville: null,
       //map: null,
       zoom: 10,
       url:
         "https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png",
-      positionCentre: { lat:  48.8566969, lng: -2.746309 },
+      positionCentre: { lat: 48.8566969, lng: -2.746309 },
       icon: icon({
         iconUrl: "http://pngimg.com/uploads/gps/gps_PNG74.png",
         iconSize: [32, 37],
         iconAnchor: [16, 37]
       }),
-      center: [0, 0],
-    
+      center: [0, 0]
     };
   },
   props: {},
@@ -168,9 +158,9 @@ ville:null,
           date: this.date,
           etat: this.state,
           x: this.positionCentre.lat.toString(),
-          y:  this.positionCentre.lng.toString(),
+          y: this.positionCentre.lng.toString(),
           adresse: this.adresse,
-          ville:this.ville,
+          ville: this.ville,
           iduser: localStorage.id
         })
         .then(res => {
@@ -181,7 +171,7 @@ ville:null,
           console.log(err);
         });
     },
-  
+
     getLocation: function() {
       console.log("ooook");
 
@@ -198,12 +188,14 @@ ville:null,
           //console.log(response.data[0].lat);
           this.loading = false;
           this.resultats = response.data;
-        if(typeof  response.data[0].address.town !== "undefined"){
-        this.ville = response.data[0].address.town;}else{ this.ville = response.data[0].address.city}
-      console.log("Ville "+ this.ville);
-         this.positionCentre.lat = parseFloat(response.data[0].lat);
-         this.positionCentre.lng = parseFloat(response.data[0].lon);
-
+          if (typeof response.data[0].address.town !== "undefined") {
+            this.ville = response.data[0].address.town;
+          } else {
+            this.ville = response.data[0].address.city;
+          }
+          console.log("Ville " + this.ville);
+          this.positionCentre.lat = parseFloat(response.data[0].lat);
+          this.positionCentre.lng = parseFloat(response.data[0].lon);
         })
         .catch(error => {
           console.log(error);
@@ -214,10 +206,9 @@ ville:null,
           this.loading = false;
           console.log("bruhh");
         });
-    },
+    }
 
     // mettre à jour latitude et longitude sur déplacement du marker
-
   },
   computed: {
     check: function() {
@@ -250,11 +241,10 @@ body,
   height: 100%;
   margin: 0;
 }
-.event{
+.event {
   height: 100%;
   overflow-y: hidden;
   width: 100%;
   overflow-x: hidden;
-
 }
 </style>
