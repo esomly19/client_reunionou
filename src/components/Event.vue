@@ -36,6 +36,7 @@
         <label for="age">Date</label>
         <input class="form-control" id="age" v-model="date" type="date" name="age" min="0" required />
       </p>
+
       <div class="custom-control custom-switch">
         <input
           v-model="publik"
