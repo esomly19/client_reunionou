@@ -71,7 +71,7 @@ body {
   flex-wrap: wrap;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center;
+  justify-content: space-around;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -84,10 +84,5 @@ body {
   border-spacing: 50px;
   padding: 10px;
   background: rgba(242, 246, 248, 1);
-}
-div.polaroid {
-  width: 350px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
 }
 </style>
