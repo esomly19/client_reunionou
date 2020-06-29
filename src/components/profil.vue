@@ -15,7 +15,7 @@
                 <h5 class="card-title">{{event.titre}}</h5>
                 {{event.description}} {{event.adresse}}
                 <br />
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a :click="info(event.token)" class="btn btn-primary">Plus d'info</a>
                 <div class="card-footer text-muted">{{event.date}}</div>
               </div>
             </div>
@@ -53,6 +53,9 @@ export default {
           console.log("CASSE");
           console.log(err);
         });
+    },
+    info(info) {
+      this.$router.push({ name: "detail", params: { token: info } });
     },
     recupeeventsuser() {
       axios
