@@ -21,7 +21,7 @@
   <p>
     <label for="name">Description de l'événement</label>
     <textarea
-      id="name"
+      class="form-control" id="exampleFormControlTextarea1" rows="3"
       v-model="description"
       
       name="name"
