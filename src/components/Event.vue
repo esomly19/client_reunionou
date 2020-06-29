@@ -118,13 +118,13 @@ export default {
       zoom: 5,
       url:
         "https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png",
-      positionCentre: { lat: 48.8566969, lng: 2.3514616 },
+      positionCentre: { lat: 48.8566969, lng: 4.3514616 },
       icon: icon({
         iconUrl: "http://pngimg.com/uploads/gps/gps_PNG74.png",
         iconSize: [32, 37],
         iconAnchor: [16, 37]
       }),
-      center: [55.746309, 2.3514616]
+      center: [55.746309, 4.3514616]
     };
   },
   props: {},
