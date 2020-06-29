@@ -44,13 +44,7 @@
 
     <div class="form-row justify-content-center">
       <div class="col-md-6 mb-3">
-        <l-map
-          class="col-7"
-          style="height: 500px;"
-          :zoom="zoom"
-          :center="center"
-          :markerZoomAnimation="true"
-        >
+        <l-map style="height: 500px;" :zoom="zoom" :center="center" :markerZoomAnimation="true">
           <l-tile-layer :url="url"></l-tile-layer>
           <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
         </l-map>
