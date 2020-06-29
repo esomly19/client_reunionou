@@ -35,7 +35,15 @@
         </div>
         <p>
           <label for="age">Date</label>
-          <input id="age" v-model="date" type="date" name="age" min="0" required />
+          <input
+            class="form-control"
+            id="age"
+            v-model="date"
+            type="date"
+            name="age"
+            min="0"
+            required
+          />
         </p>
       </div>
       <div class="custom-control custom-switch">
