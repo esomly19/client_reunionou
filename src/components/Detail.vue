@@ -84,7 +84,7 @@
         </div>
         <div class="w-100"></div>
         <div class="col-4 dr">
-          <div v-for="participant in participants" :key="participant.nom">{{ participant.nom }}</div>
+          <div v-for="participant in participantes" :key="participant.nom">{{ participant.nom }}</div>
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@ export default {
       message:
         "https://warm-badlands-86536.herokuapp.com/evenement/" +
         this.$route.params.token,
-      participants: null,
+      participantes: null,
       comments: null,
       name: "",
       description: "",
@@ -196,7 +196,7 @@ export default {
         )
         .then(res => {
           console.log("Données" + res.data);
-          this.participants = res.data;
+          this.participantes = res.data;
         })
         .catch(err => {
           console.log("CASSE");
