@@ -8,29 +8,34 @@
     </p>-->
     <div class="form-row justify-content-center">
       <div class="col-md-6 mb-3">
-        <label for="name">Nom de l'événement</label>
-        <input
-          class="form-control"
-          id="validationDefault01"
-          v-model="name"
-          type="text"
-          name="name"
-          required
-        />
-        <label for="name">Description de l'événement</label>
-        <textarea
-          class="form-control"
-          id="exampleFormControlTextarea1"
-          rows="6"
-          v-model="description"
-          name="name"
-          required
-        />
+        <p>
+          <label for="name">Nom de l'événement</label>
+          <input
+            class="form-control"
+            id="validationDefault01"
+            v-model="name"
+            type="text"
+            name="name"
+            required
+          />
+        </p>
+        <p>
+          <label for="name">Description de l'événement</label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="6"
+            v-model="description"
+            name="name"
+            required
+          />
+        </p>
         <div class="valid-feedback">Looks good!</div>
       </div>
-      <label for="age">Date</label>
-      <input class="form-control" id="age" v-model="date" type="date" name="age" min="0" required />
-
+      <p>
+        <label for="age">Date</label>
+        <input class="form-control" id="age" v-model="date" type="date" name="age" min="0" required />
+      </p>
       <div class="custom-control custom-switch">
         <input
           v-model="publik"
@@ -41,13 +46,16 @@
         <label class="custom-control-label form-control" for="customSwitch1">Evénément {{check}}</label>
       </div>
     </div>
+
     <div class="form-row justify-content-center">
       <div class="col-md-6 mb-3">
         <l-map style="height: 500px;" :zoom="zoom" :center="center" :markerZoomAnimation="true">
           <l-tile-layer :url="url"></l-tile-layer>
           <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
         </l-map>
+
         <input type="text" placeholder="Entrez votre adresse" v-model="adresse" />
+
         <button class="button" v-on:click="getLocation">Marquer !</button>
         <div v-if="wait">...</div>
         <section v-if="erreur">
@@ -66,8 +74,9 @@
           </div>
         </section>
       </div>
-      <button :disabled="verif" class="btn btn-primary" v-on:click="creeevent">Valider</button>
     </div>
+
+    <button :disabled="verif" class="btn btn-primary" v-on:click="creeevent">Valider</button>
   </div>
 </template>
 <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
