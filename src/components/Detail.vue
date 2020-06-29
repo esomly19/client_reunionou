@@ -29,7 +29,7 @@
         <div class="col-4 dr">
           <div class="comments-list">
             <div class="comment" v-for="comment in comments" :key="comment.nom">
-              <h4>{{ comment.nom }} says</h4>
+              <h4>{{ comment.nom }} dit</h4>
               <p>{{ comment.commentaire }}</p>
               <p class="comment-time">{{ comment.date }}</p>
             </div>
@@ -82,6 +82,10 @@
             </div>
           </div>
         </div>
+        <div class="w-100"></div>
+        <div class="col-4 dr">
+          <div v-for="participant in participants" :key="participant.nom">{{ participant.nom }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -112,7 +116,7 @@ export default {
       message:
         "https://warm-badlands-86536.herokuapp.com/evenement/" +
         this.$route.params.token,
-      items: null,
+      participants: null,
       comments: null,
       name: "",
       description: "",
@@ -192,7 +196,7 @@ export default {
         )
         .then(res => {
           console.log("Données" + res.data);
-          this.items = res.data;
+          this.participants = res.data;
         })
         .catch(err => {
           console.log("CASSE");
