@@ -36,7 +36,7 @@
         <label for="age">Date</label>
         <input class="form-control" id="age" v-model="date" type="date" name="age" min="0" required />
       </p>
-      <div class="custom-control custom-switch">
+      <div class="custom-control custom-switch form-control">
         <input v-model="publik" type="checkbox" class="custom-control-input" id="customSwitch1" />
         <label class="custom-control-label" for="customSwitch1">Evénément {{check}}</label>
       </div>
