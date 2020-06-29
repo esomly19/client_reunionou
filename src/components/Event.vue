@@ -7,7 +7,7 @@
       <li  :key="error" v-for="error in errors">{{ error }}</li>
     </ul>
       </p>-->
-      <div class="form-row">
+      <div class="form-row justify-content-center">
         <div class="col-md-4 mb-3">
           <p>
             <label for="name">Nom de l'événement</label>
