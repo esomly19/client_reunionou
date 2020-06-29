@@ -42,37 +42,39 @@
       <label class="custom-control-label" for="customSwitch1">Evénément {{check}}</label>
     </div>
 
-    <div class="row">
-      <l-map
-        class="col-7"
-        style="height: 500px;"
-        :zoom="zoom"
-        :center="center"
-        :markerZoomAnimation="true"
-      >
-        <l-tile-layer :url="url"></l-tile-layer>
-        <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
-      </l-map>
-      <div class="col-5">
-        <input type="text" placeholder="Entrez votre adresse" v-model="adresse" />
+    <div class="form-row justify-content-center">
+      <div class="col-md-6 mb-3">
+        <l-map
+          class="col-7"
+          style="height: 500px;"
+          :zoom="zoom"
+          :center="center"
+          :markerZoomAnimation="true"
+        >
+          <l-tile-layer :url="url"></l-tile-layer>
+          <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
+        </l-map>
+        <div class="col-5">
+          <input type="text" placeholder="Entrez votre adresse" v-model="adresse" />
 
-        <button class="button" v-on:click="getLocation">Marquer !</button>
-        <div v-if="wait">...</div>
-        <section v-if="erreur">
-          <p>Désolé, mais nous n'avons trouvé aucun résultat pour {{ adresse }}.</p>
-        </section>
+          <button class="button" v-on:click="getLocation">Marquer !</button>
+          <div v-if="wait">...</div>
+          <section v-if="erreur">
+            <p>Désolé, mais nous n'avons trouvé aucun résultat pour {{ adresse }}.</p>
+          </section>
 
-        <section v-if="resultats">
-          <div v-if="loading">Chargement...</div>
-          <div v-else v-for="poi in resultats" v-bind:key="poi.address">
-            <h2>Résultats pour {{ adresse }}</h2>
-            <input type="number" :value="positionCentre.lat" />
-            <input type="number" :value="positionCentre.lng" />
-            <div v-if="poi.address.postcode">
-              <h3>{{ poi.address.postcode }} {{ poi.address.city }} {{ poi.address.suburb }}</h3>
+          <section v-if="resultats">
+            <div v-if="loading">Chargement...</div>
+            <div v-else v-for="poi in resultats" v-bind:key="poi.address">
+              <h2>Résultats pour {{ adresse }}</h2>
+              <input type="number" :value="positionCentre.lat" />
+              <input type="number" :value="positionCentre.lng" />
+              <div v-if="poi.address.postcode">
+                <h3>{{ poi.address.postcode }} {{ poi.address.city }} {{ poi.address.suburb }}</h3>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </div>
     <p>
