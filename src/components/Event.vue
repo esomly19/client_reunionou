@@ -7,7 +7,7 @@
     </ul>
     </p>-->
     <div class="form-row justify-content-center">
-      <div class="col-md-4 mb-3">
+      <div class="col-md-6 mb-3">
         <p>
           <label for="name">Nom de l'événement</label>
           <input
@@ -24,7 +24,7 @@
           <textarea
             class="form-control"
             id="exampleFormControlTextarea1"
-            rows="3"
+            rows="6"
             v-model="description"
             name="name"
             required
@@ -42,7 +42,7 @@
       <label class="custom-control-label" for="customSwitch1">Evénément {{check}}</label>
     </div>
 
-    <div class="row">
+    <div class="row justify-content-center">
       <l-map
         class="col-6"
         style="height: 500px;"
