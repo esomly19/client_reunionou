@@ -48,7 +48,7 @@
 
 <div class="row">
 
-      <l-map  class="col-8" style="height: 700px;" :zoom="zoom" :center="center" :markerZoomAnimation="true" attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'>
+      <l-map  class="col-8" style="height: 400px;" :zoom="zoom" :center="center" :markerZoomAnimation="true" attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'>
             <l-tile-layer :url="url"></l-tile-layer>
             <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
         
@@ -249,5 +249,12 @@ body,
 #app {
   height: 100%;
   margin: 0;
+}
+.event{
+  height: 100%;
+  overflow-y: hidden;
+  width: 100%;
+  overflow-x: hidden;
+
 }
 </style>
