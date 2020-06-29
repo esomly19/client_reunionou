@@ -1,93 +1,83 @@
 <template>
   <div class="event">
-    <form class="needs-validation" novalidate>
-      <!-- <p v-if="errors.length">
+    <!-- <p v-if="errors.length">
     <b>Please correct the following error(s):</b>
     <ul>
       <li  :key="error" v-for="error in errors">{{ error }}</li>
     </ul>
-      </p>-->
-      <div class="form-row justify-content-center">
-        <div class="col-md-4 mb-3">
-          <p>
-            <label for="name">Nom de l'événement</label>
-            <input
-              class="form-control"
-              id="validationDefault01"
-              v-model="name"
-              type="text"
-              name="name"
-              required
-            />
-          </p>
-          <p>
-            <label for="name">Description de l'événement</label>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-              v-model="description"
-              name="name"
-              required
-            />
-          </p>
-          <div class="valid-feedback">Looks good!</div>
-        </div>
+    </p>-->
+    <div class="form-row justify-content-center">
+      <div class="col-md-4 mb-3">
         <p>
-          <label for="age">Date</label>
+          <label for="name">Nom de l'événement</label>
           <input
             class="form-control"
-            id="age"
-            v-model="date"
-            type="date"
-            name="age"
-            min="0"
+            id="validationDefault01"
+            v-model="name"
+            type="text"
+            name="name"
             required
           />
         </p>
-      </div>
-      <div class="custom-control custom-switch">
-        <input v-model="publik" type="checkbox" class="custom-control-input" id="customSwitch1" />
-        <label class="custom-control-label" for="customSwitch1">Evénément {{check}}</label>
-      </div>
-
-      <div class="row">
-        <l-map
-          class="col-6"
-          style="height: 500px;"
-          :zoom="zoom"
-          :center="center"
-          :markerZoomAnimation="true"
-        >
-          <l-tile-layer :url="url"></l-tile-layer>
-          <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
-        </l-map>
-        <div class="col-6">
-          <input type="text" placeholder="Entrez votre adresse" v-model="adresse" />
-
-          <button class="button" v-on:click="getLocation">Marquer !</button>
-          <div v-if="wait">...</div>
-          <section v-if="erreur">
-            <p>Désolé, mais nous n'avons trouvé aucun résultat pour {{ adresse }}.</p>
-          </section>
-
-          <section v-if="resultats">
-            <div v-if="loading">Chargement...</div>
-            <div v-else v-for="poi in resultats" v-bind:key="poi.address">
-              <h2>Résultats pour {{ adresse }}</h2>
-              <input type="number" :value="positionCentre.lat" />
-              <input type="number" :value="positionCentre.lng" />
-              <div v-if="poi.address.postcode">
-                <h3>{{ poi.address.postcode }} {{ poi.address.city }} {{ poi.address.suburb }}</h3>
-              </div>
-            </div>
-          </section>
-        </div>
+        <p>
+          <label for="name">Description de l'événement</label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            v-model="description"
+            name="name"
+            required
+          />
+        </p>
+        <div class="valid-feedback">Looks good!</div>
       </div>
       <p>
-        <button class="btn btn-primary" type="submit" v-on:click="creeevent">Valider</button>
+        <label for="age">Date</label>
+        <input class="form-control" id="age" v-model="date" type="date" name="age" min="0" required />
       </p>
-    </form>
+    </div>
+    <div class="custom-control custom-switch">
+      <input v-model="publik" type="checkbox" class="custom-control-input" id="customSwitch1" />
+      <label class="custom-control-label" for="customSwitch1">Evénément {{check}}</label>
+    </div>
+
+    <div class="row">
+      <l-map
+        class="col-6"
+        style="height: 500px;"
+        :zoom="zoom"
+        :center="center"
+        :markerZoomAnimation="true"
+      >
+        <l-tile-layer :url="url"></l-tile-layer>
+        <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
+      </l-map>
+      <div class="col-6">
+        <input type="text" placeholder="Entrez votre adresse" v-model="adresse" />
+
+        <button class="button" v-on:click="getLocation">Marquer !</button>
+        <div v-if="wait">...</div>
+        <section v-if="erreur">
+          <p>Désolé, mais nous n'avons trouvé aucun résultat pour {{ adresse }}.</p>
+        </section>
+
+        <section v-if="resultats">
+          <div v-if="loading">Chargement...</div>
+          <div v-else v-for="poi in resultats" v-bind:key="poi.address">
+            <h2>Résultats pour {{ adresse }}</h2>
+            <input type="number" :value="positionCentre.lat" />
+            <input type="number" :value="positionCentre.lng" />
+            <div v-if="poi.address.postcode">
+              <h3>{{ poi.address.postcode }} {{ poi.address.city }} {{ poi.address.suburb }}</h3>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <p>
+      <button class="btn btn-primary" v-on:click="creeevent">Valider</button>
+    </p>
   </div>
 </template>
 <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
