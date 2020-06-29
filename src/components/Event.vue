@@ -7,7 +7,7 @@
     </ul>
     </p>-->
     <div class="form-row justify-content-center">
-      <div class="col-md-8 mb-4">
+      <div class="col-md-6 mb-3">
         <p>
           <label for="name">Nom de l'événement</label>
           <input
@@ -42,9 +42,9 @@
       <label class="custom-control-label" for="customSwitch1">Evénément {{check}}</label>
     </div>
 
-    <div class="col-md-6 mb-3 justify-content-center">
+    <div class="row">
       <l-map
-        class="col-6"
+        class="col-7"
         style="height: 500px;"
         :zoom="zoom"
         :center="center"
@@ -53,7 +53,7 @@
         <l-tile-layer :url="url"></l-tile-layer>
         <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
       </l-map>
-      <div class="col-6">
+      <div class="col-5">
         <input type="text" placeholder="Entrez votre adresse" v-model="adresse" />
 
         <button class="button" v-on:click="getLocation">Marquer !</button>
