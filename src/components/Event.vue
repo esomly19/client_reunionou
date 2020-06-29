@@ -17,6 +17,7 @@
               v-model="name"
               type="text"
               name="name"
+              required
             />
           </p>
           <p>
@@ -27,13 +28,14 @@
               rows="3"
               v-model="description"
               name="name"
+              required
             />
           </p>
           <div class="valid-feedback">Looks good!</div>
         </div>
         <p>
           <label for="age">Date</label>
-          <input id="age" v-model="date" type="date" name="age" min="0" />
+          <input id="age" v-model="date" type="date" name="age" min="0" required />
         </p>
       </div>
       <div class="custom-control custom-switch">
