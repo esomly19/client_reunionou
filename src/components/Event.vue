@@ -124,7 +124,7 @@ export default {
         iconSize: [32, 37],
         iconAnchor: [16, 37]
       }),
-      center: [24, 0846598, 55, 7160983]
+      center: [24.8566969, 55.746309]
     };
   },
   props: {},
