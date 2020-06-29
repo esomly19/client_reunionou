@@ -1,5 +1,5 @@
 <template>
-  <div class="polaroid">
+  <div class="card" style="width: 18rem;">
     <div class="cardmap" v-on:click="detail(soro.token)">
       <l-map
         style="height: 200px;  width:100%"
@@ -11,7 +11,7 @@
         <l-tile-layer :url="url"></l-tile-layer>
         <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
       </l-map>
-      <p style="justify-content: center; font-family: 'Playfair Display', serif; ">{{soro.titre}}</p>
+      <h5 class="card-title">{soro.titre}}</h5>
       <div class="card-footer text-muted">{{soro.date}}</div>
     </div>
   </div>
