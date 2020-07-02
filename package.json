@@ -6,10 +6,9 @@
     "node": "12.14.1"
   },
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "start": "node server.js",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.10.0",

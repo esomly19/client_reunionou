@@ -16,7 +16,14 @@
           </l-map>
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-light"
+            data-toggle="modal"
+            data-target="#participer"
+            data-backdrop="true"
+          >Participer</button>
+          <button
+            type="button"
+            class="btn btn-dark"
             v-clipboard:copy="message"
             v-clipboard:success="onCopy"
             v-clipboard:error="onError"
@@ -38,7 +45,7 @@
           <div>
             <button
               type="button"
-              class="btn btn-primary"
+              class="btn btn-secondary"
               data-toggle="modal"
               data-target="#myModal"
               data-backdrop="true"
@@ -82,8 +89,59 @@
             </div>
           </div>
           <div class="w-100"></div>
-          <div class="col-4 dr" id="parti">
-            <div v-for="participant in participantes" :key="participant.nom">{{ participant.nom }}</div>
+          <div class="col-12 dr" id="parti">
+            <table class="table text-center table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Partipants</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th
+                    scope="row"
+                    v-for="participant in participantes"
+                    :key="participant.nom"
+                  >{{ participant.nom }}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="participer"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Participer à {{events.titre}}</h5>
+            <button type="button" class="close right" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input
+              type="text"
+              id="name"
+              v-model="namee"
+              name="name"
+              required
+              minlength="4"
+              maxlength="8"
+              size="10"
+              placeholder="nom"
+            />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" v-on:click="participer">Participer</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Ne pas participer</button>
           </div>
         </div>
       </div>
@@ -113,9 +171,7 @@ export default {
       x: 0,
       y: 0,
       events: null,
-      message:
-        "https://warm-badlands-86536.herokuapp.com/evenement/" +
-        this.$route.params.token,
+      message: "http://localhost:8081/event/" + this.$route.params.token,
       participantes: null,
       comments: null,
       name: "",
@@ -138,7 +194,8 @@ export default {
       center: {
         lat: 0,
         lng: 0
-      }
+      },
+      namee: ""
     };
   },
   props: {},
@@ -200,6 +257,22 @@ export default {
         })
         .catch(err => {
           console.log("CASSE");
+          console.log(err);
+        });
+    },
+    loadModal() {
+      "#myModal".modal("show");
+    },
+    participer() {
+      axios
+        .post("https://warm-badlands-86536.herokuapp.com/participe", {
+          nom: this.namee,
+          token: this.$route.params.token
+        })
+        .then(res => {
+          console.log(res.data);
+        })
+        .catch(err => {
           console.log(err);
         });
     },

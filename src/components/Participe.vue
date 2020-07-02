@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!--  <div class="eventlist">
+    <div class="eventlist">
       <button
         type="button"
         class="btn btn-primary"
@@ -9,8 +9,6 @@
         data-backdrop="true"
       >Launch demo modal</button>
 
-    Modal-->
-    <!--
       <div
         class="modal fade"
         id="myModal"
@@ -47,7 +45,7 @@
           </div>
         </div>
       </div>
-    </div>-->
+    </div>
     <p>ok</p>
   </div>
 </template>
