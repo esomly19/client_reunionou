@@ -32,8 +32,7 @@
             <li>
               <a
                 class="btn tw fa-twitter"
-                href="https://twitter.com/intent/tweet?url=https://reunionouapp.netlify.app/event/"
-                +{{events.token}}
+                href="https://twitter.com/intent/tweet?url=https://reunionouapp.netlify.app/event/{{events.token}}"
                 target="_blank"
               >Twitter</a>
             </li>
@@ -41,28 +40,9 @@
             <li>
               <a
                 class="btn fb fa-facebook"
-                href="https://facebook.com/sharer.php?u=https://reunionouapp.netlify.app/event/"
-                +{{events.token}}
+                href="https://facebook.com/sharer.php?u=https://reunionouapp.netlify.app/event/{{events.token}}"
                 target="_blank"
               >Facebook</a>
-            </li>
-
-            <li>
-              <a
-                class="btn gp fa-google-plus"
-                href="https://plus.google.com/share?url=https://reunionouapp.netlify.app/event/"
-                +{{events.token}}
-                target="_blank"
-              >Google+</a>
-            </li>
-
-            <li>
-              <a
-                class="btn pin fa-pinterest"
-                href="https://pinterest.com/pin/create/button/?url=https://reunionouapp.netlify.app/event/"
-                +{{events.token}}
-                target="_blank"
-              >Pinterest</a>
             </li>
           </ul>
 
