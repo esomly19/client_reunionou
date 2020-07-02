@@ -10,13 +10,13 @@
           <ul class="social-icons">
             <li>
               <a v-on:click="gotweet()">
-                <img style="height:25px; width:25px;" src="../assets/img/Twitter_3.png" />
+                <img src="../assets/img/Twitter_3.png" />
               </a>
             </li>
 
             <li>
               <a v-on:click="gofacebook()">
-                <img style="height:25px; width:25px;" src="../assets/img/Facebook_3.png" />
+                <img src="../assets/img/Facebook_3.png" />
               </a>
             </li>
           </ul>
@@ -430,7 +430,7 @@ html {
 }
 
 .social-icons {
-  text-align: center;
+  text-align: left;
 }
 .social-icons li {
   display: inline-block;
@@ -442,8 +442,8 @@ html {
   border-bottom: none;
 }
 .social-icons li img {
-  width: 70px;
-  height: 70px;
+  width: 25px;
+  height: 25px;
   margin-right: 20px;
 }
 </style>
