@@ -2,12 +2,24 @@
   <div class="eventlist">
     <div v-if="load" class="loader"></div>
     <div v-if="!load">
-      <h1 class="text-center">{{events.titre}}</h1>
-      <p>{{events.description}}</p>
-      <p>{{events.date}}</p>
-      <p>{{events.iduser}}</p>
       <div class="row">
         <div class="col-8 ga">
+          <h1 class="text-center">{{events.titre}}</h1>
+          <p>{{events.description}} {{events.date}}</p>
+          <p>{{events.iduser}}</p>
+          <ul class="social-icons">
+            <li>
+              <a v-on:click="gotweet()">
+                <img src="../assets/img/Twitter_3.png" />
+              </a>
+            </li>
+
+            <li>
+              <a v-on:click="gofacebook()">
+                <img src="../assets/img/Facebook_3.png" />
+              </a>
+            </li>
+          </ul>
           <l-map
             style="height: 600px;  width:100%"
             :zoom="zoom"
@@ -32,19 +44,6 @@
             v-clipboard:success="onCopy"
             v-clipboard:error="onError"
           >Partager</button>
-          <ul class="social-icons">
-            <li>
-              <a v-on:click="gotweet()">
-                <img src="../assets/img/Twitter_3.png" />
-              </a>
-            </li>
-
-            <li>
-              <a v-on:click="gofacebook()">
-                <img src="../assets/img/Facebook_3.png" />
-              </a>
-            </li>
-          </ul>
         </div>
         <div class="col-4 dr">
           <div class="comments-list" id="comm">
