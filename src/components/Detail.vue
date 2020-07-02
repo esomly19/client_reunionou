@@ -28,23 +28,10 @@
             v-clipboard:success="onCopy"
             v-clipboard:error="onError"
           >Partager</button>
-          <ul>
-            <li>
-              <a
-                class="btn tw fa-twitter"
-                href="https://twitter.com/intent/tweet?url=https://reunionouapp.netlify.app/event/{{events.token}}"
-                target="_blank"
-              >Twitter</a>
-            </li>
 
-            <li>
-              <a
-                class="btn fb fa-facebook"
-                href="https://facebook.com/sharer.php?u=https://reunionouapp.netlify.app/event/{{events.token}}"
-                target="_blank"
-              >Facebook</a>
-            </li>
-          </ul>
+          <button class="btn tw fa-twitter" :click="gotweet()" target="_blank">Twitter</button>
+
+          <button class="btn fb fa-facebook" :click="goFacebook()" target="_blank">Facebook</button>
 
           <h1 class="text-center">{{events.titre}}</h1>
           <p>{{events.description}}</p>
@@ -186,6 +173,12 @@ export default {
   },
   data() {
     return {
+      twitter:
+        "https://twitter.com/intent/tweet?url=https://reunionouapp.netlify.app/event/&text=No%20JS%20Social%20Media%20Share%20Buttons&via=heyvian" +
+        this.$route.params.token,
+      facebook:
+        "https://facebook.com/sharer.php?u=https://reunionouapp.netlify.app/event/" +
+        this.$route.params.token,
       x: 0,
       y: 0,
       events: null,
@@ -219,6 +212,12 @@ export default {
   },
   props: {},
   methods: {
+    gotweet() {
+      window.location.href = this.twitter;
+    },
+    goFacebook() {
+      window.location.href = this.facebook;
+    },
     meteo() {
       let apiKey = "a579a57df9601dfb8d080dbd25538189";
 
