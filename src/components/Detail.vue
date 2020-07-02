@@ -28,11 +28,19 @@
             v-clipboard:success="onCopy"
             v-clipboard:error="onError"
           >Partager</button>
+          <ul class="social-icons">
+            <li>
+              <a class="fa fa-facebook" v-on:click="gotweet()">
+                <img src="../assets/img/Facebook_3.png" />
+              </a>
+            </li>
 
-          <a class="fa fa-facebook" v-on:click="gotweet()"></a>
-
-          <a class="fa fa-twitter" v-on:click="gofacebook()"></a>
-
+            <li>
+              <a class="fa fa-twitter" v-on:click="gofacebook()">
+                <img src="../assets/img/Twitter_3.png" />
+              </a>
+            </li>
+          </ul>
           <h1 class="text-center">{{events.titre}}</h1>
           <p>{{events.description}}</p>
           <p>{{events.date}}</p>
@@ -446,5 +454,22 @@ html {
 .fa-twitter {
   background: #55acee;
   color: white;
+}
+.social-icons {
+  text-align: center;
+}
+.social-icons li {
+  display: inline-block;
+  list-style-type: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+.social-icons li a {
+  border-bottom: none;
+}
+.social-icons li img {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
 }
 </style>
