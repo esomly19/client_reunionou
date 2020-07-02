@@ -182,8 +182,10 @@ export default {
   data() {
     return {
       twitter:
-        "https://twitter.com/intent/tweet?url=https://reunionouapp.netlify.app/event/&text=No%20JS%20Social%20Media%20Share%20Buttons&via=heyvian" +
-        this.$route.params.token,
+        "https://twitter.com/intent/tweet?url=https://reunionouapp.netlify.app/event/" +
+        this.$route.params.token +
+        "&text=Evénement%20" +
+        this.events.titre,
       facebook:
         "https://facebook.com/sharer.php?u=https://reunionouapp.netlify.app/event/" +
         this.$route.params.token,
