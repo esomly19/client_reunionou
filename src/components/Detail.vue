@@ -184,8 +184,8 @@ export default {
       twitter:
         "https://twitter.com/intent/tweet?url=https://reunionouapp.netlify.app/event/" +
         this.$route.params.token +
-        "&text=Evénement%20" +
-        this.events.titre,
+        "&text=Evénement%20crée%20via%20reunionou",
+
       facebook:
         "https://facebook.com/sharer.php?u=https://reunionouapp.netlify.app/event/" +
         this.$route.params.token,
