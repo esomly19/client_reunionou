@@ -29,9 +29,9 @@
             v-clipboard:error="onError"
           >Partager</button>
 
-          <button class="fa fa-facebook" v-on:click="gotweet()">Twitter</button>
+          <button class="fa fa-facebook" v-on:click="gotweet()"></button>
 
-          <button class="fa fa-twitter" v-on:click="gofacebook()">Facebook</button>
+          <button class="fa fa-twitter" v-on:click="gofacebook()"></button>
 
           <h1 class="text-center">{{events.titre}}</h1>
           <p>{{events.description}}</p>
