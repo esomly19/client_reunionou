@@ -28,6 +28,13 @@
             v-clipboard:success="onCopy"
             v-clipboard:error="onError"
           >Partager</button>
+          <div class="links">
+            <ul>
+              <li class="social-share facebook">Share on Facebook</li>
+              <li class="social-share twitter">Share on Twitter</li>
+              <li class="social-share linkedin">Share on LinkedIn</li>
+            </ul>
+          </div>
           <h1 class="text-center">{{events.titre}}</h1>
           <p>{{events.description}}</p>
           <p>{{events.date}}</p>
@@ -150,6 +157,43 @@
 </template>
 
 <script>
+setShareLinks();
+
+function socialWindow(url) {
+  var left = (screen.width - 570) / 2;
+  var top = (screen.height - 570) / 2;
+  var params =
+    "menubar=no,toolbar=no,status=no,width=570,height=570,top=" +
+    top +
+    ",left=" +
+    left;
+  // Setting 'params' to an empty string will launch
+  // content in a new tab or window rather than a pop-up.
+  // params = "";
+  window.open(url, "NewWindow", params);
+}
+
+function setShareLinks() {
+  var pageUrl = encodeURIComponent(document.URL);
+  var tweet = encodeURIComponent(
+    $("meta[property='og:description']").attr("content")
+  );
+
+  $(".social-share.facebook").on("click", function() {
+    url = "https://www.facebook.com/sharer.php?u=" + pageUrl;
+    socialWindow(url);
+  });
+
+  $(".social-share.twitter").on("click", function() {
+    url = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet;
+    socialWindow(url);
+  });
+
+  $(".social-share.linkedin").on("click", function() {
+    url = "https://www.linkedin.com/shareArticle?mini=true&url=" + pageUrl;
+    socialWindow(url);
+  });
+}
 import axios from "axios";
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import { Icon, icon } from "leaflet";
@@ -401,5 +445,21 @@ html {
 #comm {
   height: 70%;
   overflow-y: hidden;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.links li {
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.links li:hover {
+  text-decoration: underline;
 }
 </style>
