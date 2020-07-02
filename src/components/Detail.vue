@@ -28,9 +28,8 @@
             v-clipboard:success="onCopy"
             v-clipboard:error="onError"
           >Partager</button>
-          <a href="#" class="fa fa-facebook"></a>
-          <a href="#" class="fa fa-twitter"></a>
-          <button class="fa fa-facebook" v-on:click="gotweet()"></button>
+
+          <button class="fab fa-facebook" v-on:click="gotweet()"></button>
 
           <button class="fa fa-twitter" v-on:click="gofacebook()"></button>
 
