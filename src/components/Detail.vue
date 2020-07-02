@@ -213,10 +213,10 @@ export default {
   props: {},
   methods: {
     gotweet() {
-      window.location.href = this.twitter;
+      location.href = this.twitter;
     },
     goFacebook() {
-      window.location.href = this.facebook;
+      location.href = this.facebook;
     },
     meteo() {
       let apiKey = "a579a57df9601dfb8d080dbd25538189";
