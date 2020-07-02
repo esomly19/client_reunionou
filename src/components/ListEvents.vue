@@ -58,6 +58,7 @@ export default {
           this.count = res.data.count;
           this.numberofpages = res.data.nbpage;
           this.events = res.data.events;
+          console.log(this.events);
         })
         .catch(err => {
           console.log(err);
