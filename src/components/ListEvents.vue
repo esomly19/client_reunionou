@@ -8,8 +8,8 @@
       </div>
     </div>
     <nav>
-      <Button v-on:click="previousPage()">previous</Button>
-      <Button v-on:click="nextPage()">next</Button>
+      <Button class="page-link" v-on:click="previousPage()">previous</Button>
+      <Button class="page-link" v-on:click="nextPage()">next</Button>
     </nav>
   </div>
 </template>
