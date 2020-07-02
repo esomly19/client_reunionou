@@ -60,7 +60,7 @@
               <a
                 class="btn pin fa-pinterest"
                 href="https://pinterest.com/pin/create/button/?url=https://reunionouapp.netlify.app/event/"
-                +{{events.token}}+"&media=http://heyvian.com/images/monitor.jpg"
+                +{{events.token}}
                 target="_blank"
               >Pinterest</a>
             </li>
