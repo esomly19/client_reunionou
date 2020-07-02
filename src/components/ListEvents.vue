@@ -6,9 +6,10 @@
           <eventcard :soro="item" />
         </div>
       </div>
-      <nav>
-        <Button class="page-link" v-on:click="previousPage()">previous</Button>
-        <Button class="page-link" v-on:click="nextPage()">next</Button>
+      <nav aria-label="Page navigation example">
+  <ul class="pagination">
+          <li class="page-item"> <Button class="page-link" v-on:click="previousPage()">previous</Button></li>
+        <li class="page-item"> <Button class="page-link" v-on:click="nextPage()">next</Button></li>
       </nav>
     </div>
   </div>
