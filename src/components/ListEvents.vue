@@ -4,13 +4,13 @@
       <div class="wrap">
         <div v-for="item in events" :key="item.id" class="card">
           <eventcard :soro="item" />
-          <!--<div class="card-header">{{ item.titre }}</div>
-          <div class="card-body">{{ item.description }}</div>
-          <div class="card-footer">{{ item.date }}</div>
-          <button v-on:click="detail(item.token)">Detail</button>-->
         </div>
       </div>
     </div>
+    <nav>
+      <Button v-on:click="previousPage()">previous</Button>
+      <Button v-on:click="nextPage()">next</Button>
+    </nav>
   </div>
 </template>
 
@@ -22,17 +22,42 @@ export default {
   components: { eventcard },
   data() {
     return {
-      events: null
+      events: null,
+      page: 1,
+      size: 10,
+      numberofpages: 0,
+      count: 0
     };
   },
   props: {},
   methods: {
+    nextPage() {
+      if (this.page + 1 > this.numberofpages) {
+        this.page = this.numberofpages;
+      } else {
+        this.page++;
+      }
+      this.searchUsers();
+    },
+    previousPage() {
+      if (this.page - 1 < 1) {
+        this.page = 1;
+      } else {
+        this.page--;
+      }
+      this.searchUsers();
+    },
     recupevents() {
       axios
-        .get("https://warm-badlands-86536.herokuapp.com/events")
+        .get(
+          "https://warm-badlands-86536.herokuapp.com/events" +
+            this.page +
+            "&size=10"
+        )
         .then(res => {
-          console.log(res.data);
-          this.events = res.data;
+          this.count = res.data.count;
+          this.numberofpages = res.data.nbpage;
+          this.events = res.data.events;
         })
         .catch(err => {
           console.log(err);
