@@ -250,8 +250,8 @@ export default {
         .get(weatherUrl)
         .then(res => {
           console.log("Données METEO " + res.data);
-          this.meteod = result.data.weather[0].description;
-          let e = result.data.main.temp;
+          this.meteod = res.data.weather[0].description;
+          let e = res.data.main.temp;
           this.temp = Math.floor(e);
           this.meteook = true;
         })
