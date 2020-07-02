@@ -172,7 +172,7 @@ export default {
       y: 0,
       events: null,
       message:
-        "https://5efda2e434512975b2190cb6--clever-colden-64ff33.netlify.app/event/" +
+        "https://reunionouapp.netlify.app/.netlify.app/event/" +
         this.$route.params.token,
       participantes: null,
       comments: null,
