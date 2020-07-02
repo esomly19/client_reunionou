@@ -29,7 +29,7 @@
             v-clipboard:error="onError"
           >Partager</button>
 
-          <button class="btn tw fa-twitter" :click="gotweet">Twitter</button>
+          <button class="btn tw fa-twitter" :click="gotweet()">Twitter</button>
 
           <button class="btn fb fa-facebook" :click="gofacebook">Facebook</button>
 
