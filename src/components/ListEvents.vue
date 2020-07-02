@@ -50,7 +50,7 @@ export default {
     recupevents() {
       axios
         .get(
-          "https://warm-badlands-86536.herokuapp.com/events" +
+          "https://warm-badlands-86536.herokuapp.com/events?page=" +
             this.page +
             "&size=10"
         )
