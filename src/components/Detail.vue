@@ -30,14 +30,14 @@
           >Partager</button>
           <ul class="social-icons">
             <li>
-              <a class="fa fa-facebook" v-on:click="gotweet()">
-                <img src="../assets/img/Facebook_3.png" />
+              <a v-on:click="gotweet()">
+                <img src="../assets/img/Twitter_3.png" />
               </a>
             </li>
 
             <li>
-              <a class="fa fa-twitter" v-on:click="gofacebook()">
-                <img src="../assets/img/Twitter_3.png" />
+              <a v-on:click="gofacebook()">
+                <img src="../assets/img/Facebook_3.png" />
               </a>
             </li>
           </ul>
