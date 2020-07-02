@@ -2,6 +2,10 @@
   <div class="eventlist">
     <div v-if="load" class="loader"></div>
     <div v-if="!load">
+      <h1 class="text-center">{{events.titre}}</h1>
+      <p>{{events.description}}</p>
+      <p>{{events.date}}</p>
+      <p>{{events.iduser}}</p>
       <div class="row">
         <div class="col-8 ga">
           <l-map
@@ -41,10 +45,6 @@
               </a>
             </li>
           </ul>
-          <h1 class="text-center">{{events.titre}}</h1>
-          <p>{{events.description}}</p>
-          <p>{{events.date}}</p>
-          <p>{{events.iduser}}</p>
         </div>
         <div class="col-4 dr">
           <div class="comments-list" id="comm">
