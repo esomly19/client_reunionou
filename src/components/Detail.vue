@@ -171,7 +171,9 @@ export default {
       x: 0,
       y: 0,
       events: null,
-      message: "http://localhost:8081/event/" + this.$route.params.token,
+      message:
+        "https://5efda2e434512975b2190cb6--clever-colden-64ff33.netlify.app/event/" +
+        this.$route.params.token,
       participantes: null,
       comments: null,
       name: "",
@@ -201,7 +203,6 @@ export default {
   props: {},
   methods: {
     meteo() {
-      console.log("METEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEOOOOOOOOOOOOOOOOOOOOO");
       let apiKey = "a579a57df9601dfb8d080dbd25538189";
 
       let options = "&lang=fr" + "&units=metric";
