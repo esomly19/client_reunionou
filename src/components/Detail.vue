@@ -21,7 +21,7 @@
             </li>
           </ul>
           <l-map
-            style="height: 600px;  width:100%"
+            style="height: 400px;  width:100%"
             :zoom="zoom"
             :center="center"
             :markerZoomAnimation="true"
