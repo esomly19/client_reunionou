@@ -5,11 +5,11 @@
         <div v-for="item in events" :key="item.id" class="card">
           <eventcard :soro="item" />
         </div>
-        <nav>
-          <Button class="page-link" v-on:click="previousPage()">previous</Button>
-          <Button class="page-link" v-on:click="nextPage()">next</Button>
-        </nav>
       </div>
+      <nav>
+        <Button class="page-link" v-on:click="previousPage()">previous</Button>
+        <Button class="page-link" v-on:click="nextPage()">next</Button>
+      </nav>
     </div>
   </div>
 </template>
