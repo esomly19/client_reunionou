@@ -339,6 +339,7 @@ export default {
         .get("https://warm-badlands-86536.herokuapp.com/user/" + this.id)
         .then(res => {
           console.log(res.data);
+          console.log("ouiiiiiiiiii");
           this.nom = res.data.nom;
         })
         .catch(err => {
