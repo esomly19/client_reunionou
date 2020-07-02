@@ -10,13 +10,13 @@
           <ul class="social-icons">
             <li>
               <a v-on:click="gotweet()">
-                <img style="height:45px; width:45px;" src="../assets/img/Twitter_3.png" />
+                <img style="height:25px; width:25px;" src="../assets/img/Twitter_3.png" />
               </a>
             </li>
 
             <li>
               <a v-on:click="gofacebook()">
-                <img style="height:45px; width:45px;" src="../assets/img/Facebook_3.png" />
+                <img style="height:25px; width:25px;" src="../assets/img/Facebook_3.png" />
               </a>
             </li>
           </ul>
