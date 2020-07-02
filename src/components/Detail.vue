@@ -29,9 +29,9 @@
             v-clipboard:error="onError"
           >Partager</button>
 
-          <button class="btn tw fa-twitter" :click="gotweet()">Twitter</button>
+          <button class="btn tw fa-twitter" v-on:click="gotweet()">Twitter</button>
 
-          <button class="btn fb fa-facebook" :click="gofacebook">Facebook</button>
+          <button class="btn fb fa-facebook" v-on:click="gofacebook()">Facebook</button>
 
           <h1 class="text-center">{{events.titre}}</h1>
           <p>{{events.description}}</p>
@@ -213,10 +213,10 @@ export default {
   props: {},
   methods: {
     gotweet() {
-      location.href = this.twitter;
+      window.open(this.twitter);
     },
     gofacebook() {
-      location.href = this.facebook;
+      window.open(this.facebook);
     },
     meteo() {
       let apiKey = "a579a57df9601dfb8d080dbd25538189";
