@@ -6,7 +6,7 @@
         <div class="col-8 ga">
           <h1 class="text-center">{{events.titre}}</h1>
           <p>{{events.description}} {{events.date}}</p>
-          <p>{{events.iduser}}</p>
+          <p>{{nom}}</p>
           <ul class="social-icons">
             <li>
               <a v-on:click="gotweet()">
@@ -200,7 +200,9 @@ export default {
       ville: null,
       load: false,
       meteod: null,
+      nom: null,
       zoom: 10,
+      id: null,
       url:
         "https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png",
       positionCentre: {
@@ -263,6 +265,7 @@ export default {
           this.positionCentre.lng = res.data.y;
           this.ville = res.data.ville;
           this.events = res.data;
+          this.id = res.data.iduser;
           this.load = false;
           //this.meteo();
         })
@@ -330,12 +333,24 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    },
+    userdata() {
+      axios
+        .get("https://warm-badlands-86536.herokuapp.com/user/" + this.id)
+        .then(res => {
+          console.log(res.data);
+          this.nom = res.data.nom;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   },
   mounted() {
     this.recupevents();
     this.commentaires();
     this.participants();
+    this.userdata();
   },
   computed: {}
 };
