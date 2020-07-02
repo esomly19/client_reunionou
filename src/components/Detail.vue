@@ -8,13 +8,13 @@
           <p>{{events.description}} {{events.date}}</p>
           <p>{{events.iduser}}</p>
           <ul class="social-icons">
-            <li>
+            <li style="height:45px; width:45px;">
               <a v-on:click="gotweet()">
                 <img src="../assets/img/Twitter_3.png" />
               </a>
             </li>
 
-            <li>
+            <li style="height:45px; width:45px;">
               <a v-on:click="gofacebook()">
                 <img src="../assets/img/Facebook_3.png" />
               </a>
