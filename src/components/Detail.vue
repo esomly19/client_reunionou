@@ -5,6 +5,11 @@
       <div class="row">
         <div class="col-8 ga">
           <h1 class="text-center">{{events.titre}}</h1>
+          <p v-if="meteook" class="text-center">{{meteod}} {{temp}}°c</p>
+          <p
+            v-if="!meteook"
+            class="text-center"
+          >Pas de données méteo pour cette événement, veuillez nous excusez.</p>
           <p>{{events.description}} {{events.date}}</p>
           <p>{{nom}}</p>
           <ul class="social-icons">
@@ -200,8 +205,10 @@ export default {
       ville: null,
       load: false,
       meteod: null,
+      temp: null,
       nom: null,
       zoom: 10,
+      meteook: false,
       id: null,
       url:
         "https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png",
@@ -234,7 +241,7 @@ export default {
 
       let options = "&lang=fr" + "&units=metric";
       let weatherUrl =
-        "http://api.openweathermap.org/data/2.5/weather?q=" +
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
         this.ville +
         options +
         "&APPID=" +
@@ -243,7 +250,10 @@ export default {
         .get(weatherUrl)
         .then(res => {
           console.log("Données METEO " + res.data);
-          this.meteod = res.data;
+          this.meteod = result.data.weather[0].description;
+          let e = result.data.main.temp;
+          this.temp = Math.floor(e);
+          this.meteook = true;
         })
         .catch(err => {
           console.log("CASSE");
@@ -267,7 +277,8 @@ export default {
           this.events = res.data;
           this.id = res.data.iduser;
           this.load = false;
-          //this.meteo();
+          this.meteo();
+          this.userdata(this.id);
         })
         .catch(err => {
           console.log("CASSE");
@@ -334,10 +345,10 @@ export default {
           console.log(err);
         });
     },
-    userdata() {
+    userdata(id) {
       console.log("ddddddddddddddddddddddddddd");
       axios
-        .get("https://warm-badlands-86536.herokuapp.com/user/" + this.id)
+        .get("https://warm-badlands-86536.herokuapp.com/user/" + id)
         .then(res => {
           console.log(res.data);
 
@@ -352,7 +363,6 @@ export default {
     this.recupevents();
     this.commentaires();
     this.participants();
-    this.userdata();
   },
   computed: {}
 };
