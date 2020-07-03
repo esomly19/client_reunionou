@@ -34,6 +34,12 @@
           >
             <l-tile-layer :url="url"></l-tile-layer>
             <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
+            <l-marker
+              v-for="poi in poilist"
+              :key="poi.id"
+              :lat-lng="[poi.positionX, poi.positionY]"
+              :icon="icon2"
+            ></l-marker>
             <l-routing-machine :waypoints="waypoints" />
           </l-map>
           <button
@@ -172,6 +178,7 @@ import axios from "axios";
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import LRoutingMachine from "./LRoutingMachine";
 import { Icon, icon } from "leaflet";
+
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
   iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
@@ -224,6 +231,11 @@ export default {
         iconSize: [32, 37],
         iconAnchor: [16, 37]
       }),
+      icon2: icon({
+        iconUrl: "http://pngimg.com/uploads/beer/beer_PNG2390.png",
+        iconSize: [32, 37],
+        iconAnchor: [16, 37]
+      }),
       center: {
         lat: 0,
         lng: 0
@@ -233,7 +245,8 @@ export default {
       location: null,
       gettingLocation: false,
       getLoc: false,
-      errorStr: null
+      errorStr: null,
+      poilist: []
     };
   },
   props: {},
@@ -296,6 +309,7 @@ export default {
           this.load = false;
           this.meteo();
           this.userdata(this.id);
+          this.getPoi(this.ville);
         })
         .catch(err => {
           console.log("CASSE");
@@ -370,6 +384,34 @@ export default {
           console.log(res.data);
 
           this.nom = res.data.nom;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    getPoi(ville) {
+      console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+      axios
+        .get(
+          `https://www.overpass-api.de/api/interpreter?data=[out:json][timeout:60];area["boundary"~"administrative"]["name"~` +
+            ville +
+            `];node(area)["amenity"~"bar"];out;`
+        )
+        .then(res => {
+          console.log(res.data.elements);
+          let poi = res.data.elements;
+
+          let poiii = {};
+          poi.forEach(value => {
+            poiii = {
+              id: value.id,
+              desc: value.tags.name,
+              positionX: value.lat,
+              positionY: value.lon
+            };
+            this.poilist.push(poiii);
+            poiii = {};
+          });
         })
         .catch(err => {
           console.log(err);
