@@ -280,13 +280,15 @@ export default {
           this.center.lng = res.data.y;
           this.positionCentre.lat = res.data.x;
           this.positionCentre.lng = res.data.y;
-          this.waypoints = [
-            {
-              lat: this.location.coords.latitude,
-              lng: this.location.coords.longitude
-            },
-            { lat: this.positionCentre.lat, lng: this.positionCentre.lng }
-          ];
+          if (gettingLocation) {
+            this.waypoints = [
+              {
+                lat: this.location.coords.latitude,
+                lng: this.location.coords.longitude
+              },
+              { lat: this.positionCentre.lat, lng: this.positionCentre.lng }
+            ];
+          }
           this.ville = res.data.ville;
           this.events = res.data;
           this.id = res.data.iduser;
@@ -394,7 +396,6 @@ export default {
       },
       err => {
         this.gettingLocation = false;
-        this.location.coords = { latitude: 0, longitude: 0 };
         this.errorStr = err.message;
       }
     );
