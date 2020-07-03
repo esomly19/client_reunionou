@@ -232,7 +232,7 @@ export default {
         iconAnchor: [16, 37]
       }),
       icon2: icon({
-        iconUrl: "http://pngimg.com/uploads/beer/beer_PNG2390.png",
+        iconUrl: "http://pngimg.com/uploads/gps/gps_PNG73.png",
         iconSize: [32, 37],
         iconAnchor: [16, 37]
       }),
