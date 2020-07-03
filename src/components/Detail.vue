@@ -26,7 +26,7 @@
             </li>
           </ul>
           <l-map
-            style="height: 400px;  width:100%"
+            style="height: 570px;  width:100%"
             :zoom="zoom"
             :center="center"
             :markerZoomAnimation="true"
@@ -34,6 +34,7 @@
           >
             <l-tile-layer :url="url"></l-tile-layer>
             <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
+            <l-routing-machine :waypoints="waypoints" />
           </l-map>
           <button
             type="button"
@@ -169,6 +170,7 @@
 <script>
 import axios from "axios";
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+import LRoutingMachine from "./LRoutingMachine";
 import { Icon, icon } from "leaflet";
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -181,7 +183,8 @@ export default {
   components: {
     LMap,
     LTileLayer,
-    LMarker
+    LMarker,
+    LRoutingMachine
   },
   data() {
     return {
@@ -225,7 +228,11 @@ export default {
         lat: 0,
         lng: 0
       },
-      namee: ""
+      namee: "",
+      waypoints: [],
+      location: null,
+      gettingLocation: false,
+      errorStr: null
     };
   },
   props: {},
@@ -273,6 +280,13 @@ export default {
           this.center.lng = res.data.y;
           this.positionCentre.lat = res.data.x;
           this.positionCentre.lng = res.data.y;
+          this.waypoints = [
+            {
+              lat: this.location.coords.latitude,
+              lng: this.location.coords.longitude
+            },
+            { lat: this.positionCentre.lat, lng: this.positionCentre.lng }
+          ];
           this.ville = res.data.ville;
           this.events = res.data;
           this.id = res.data.iduser;
@@ -363,6 +377,26 @@ export default {
     this.recupevents();
     this.commentaires();
     this.participants();
+  },
+  created() {
+    //do we support geolocation
+    if (!("geolocation" in navigator)) {
+      this.errorStr = "Geolocation is not available.";
+      return;
+    }
+
+    this.gettingLocation = true;
+    // get position
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        this.gettingLocation = false;
+        this.location = pos;
+      },
+      err => {
+        this.gettingLocation = false;
+        this.errorStr = err.message;
+      }
+    );
   },
   computed: {}
 };
