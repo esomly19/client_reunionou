@@ -394,6 +394,7 @@ export default {
       },
       err => {
         this.gettingLocation = false;
+        this.location.coords = { latitude: 0, longitude: 0 };
         this.errorStr = err.message;
       }
     );
