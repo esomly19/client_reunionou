@@ -395,7 +395,7 @@ export default {
         .get(
           `https://www.overpass-api.de/api/interpreter?data=[out:json][timeout:60];area["boundary"~"administrative"]["name"~` +
             ville +
-            `];node(area)["amenity"~"bar"];out;`
+            `];node(area)["amenity"~"cafe"];out;`
         )
         .then(res => {
           console.log(res.data.elements);
