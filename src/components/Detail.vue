@@ -280,7 +280,7 @@ export default {
           this.center.lng = res.data.y;
           this.positionCentre.lat = res.data.x;
           this.positionCentre.lng = res.data.y;
-          if (gettingLocation) {
+          if (this.gettingLocation) {
             this.waypoints = [
               {
                 lat: this.location.coords.latitude,
