@@ -232,6 +232,7 @@ export default {
       waypoints: [],
       location: null,
       gettingLocation: false,
+      getLoc: false,
       errorStr: null
     };
   },
@@ -280,7 +281,7 @@ export default {
           this.center.lng = res.data.y;
           this.positionCentre.lat = res.data.x;
           this.positionCentre.lng = res.data.y;
-          if (this.gettingLocation) {
+          if (this.getLoc) {
             this.waypoints = [
               {
                 lat: this.location.coords.latitude,
@@ -392,6 +393,7 @@ export default {
     navigator.geolocation.getCurrentPosition(
       pos => {
         this.gettingLocation = false;
+        this.getLoc = true;
         this.location = pos;
       },
       err => {
