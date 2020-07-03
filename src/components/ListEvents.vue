@@ -1,12 +1,23 @@
 <template>
   <div class="eventlist">
     <div class="conatiner flex">
-      <div class="wrap">
+      <input type="text" id="searchInput" v-model="search" placeholder="Search.." />
+
+      <button v-on:click="searchd()">Search</button>
+      <button v-on:click="recupevents()">Afficher tout</button>
+
+      <div v-if="!recherche && !dada" class="wrap">
         <div v-for="item in events" :key="item.id" class="card">
           <eventcard :soro="item" />
         </div>
       </div>
-      <nav aria-label="Page navigation example">
+      <div v-if="recherche && !dada" dada class="wrap">
+        <div v-for="item in events" :key="item.id" class="card">
+          <eventcard :soro="item" />
+        </div>
+      </div>
+      <div v-if="dada">Pas d'événements avec le nom : {{search}}</div>
+      <nav v-if="!dada" aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item">
             <Button class="page-link" v-on:click="previousPage()">previous</Button>
@@ -32,7 +43,10 @@ export default {
       page: 1,
       size: 10,
       numberofpages: 0,
-      count: 0
+      count: 0,
+      search: "",
+      recherche: false,
+      dada: false
     };
   },
   props: {},
@@ -54,6 +68,8 @@ export default {
       this.searchUsers();
     },
     recupevents() {
+      this.recherche = false;
+      this.dada = false;
       axios
         .get(
           "https://warm-badlands-86536.herokuapp.com/events?page=" +
@@ -72,6 +88,32 @@ export default {
     },
     detail(token) {
       this.$router.push({ name: "detail", params: { token: token } });
+    },
+    searchd() {
+      this.recherche = true;
+      axios
+        .get(
+          "https://warm-badlands-86536.herokuapp.com/events/" +
+            this.search +
+            "?page=" +
+            this.page +
+            "&size=10"
+        )
+        .then(res => {
+          this.count = res.data.count;
+          this.numberofpages = res.data.nbpage;
+
+          if (res.data.count === 0) {
+            this.dada = true;
+          } else {
+            this.events = res.data.events;
+          }
+
+          console.log(this.events);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   },
   mounted() {
