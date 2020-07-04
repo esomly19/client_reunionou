@@ -1,11 +1,21 @@
 <template>
   <div class="eventlist">
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <input class="form-control width80" type="text" v-model="search" placeholder="Search.." />
+        </div>
+
+        <div class="col-2">
+          <button class="btn btn-outline-dark" v-on:click="searchd()">Search</button>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-outline-dark" v-on:click="recupevents()">Afficher tout</button>
+        </div>
+      </div>
+    </div>
+
     <div class="conatiner flex">
-      <input type="text" id="searchInput" v-model="search" placeholder="Search.." />
-
-      <button v-on:click="searchd()">Search</button>
-      <button v-on:click="recupevents()">Afficher tout</button>
-
       <div v-if="!recherche && !dada" class="wrap">
         <div v-for="item in events" :key="item.id" class="card">
           <eventcard :soro="item" />
@@ -17,6 +27,8 @@
         </div>
       </div>
       <div v-if="dada">Pas d'événements avec le nom : {{search}}</div>
+    </div>
+    <footer>
       <nav v-if="!dada" aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item">
@@ -27,7 +39,7 @@
           </li>
         </ul>
       </nav>
-    </div>
+    </footer>
   </div>
 </template>
 
@@ -57,7 +69,7 @@ export default {
       } else {
         this.page++;
       }
-      this.searchUsers();
+      this.recupevents();
     },
     previousPage() {
       if (this.page - 1 < 1) {
@@ -65,7 +77,7 @@ export default {
       } else {
         this.page--;
       }
-      this.searchUsers();
+      this.recupevents();
     },
     recupevents() {
       this.recherche = false;
@@ -135,7 +147,8 @@ body {
 }
 .conatiner {
   width: 100%;
-  height: 500px;
+  height: 90%;
+  overflow-y: hidden;
 }
 .wrap {
   display: -webkit-box;
@@ -159,5 +172,14 @@ body {
   border-spacing: 50px;
   padding: 10px;
   background: rgba(242, 246, 248, 1);
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
 }
 </style>

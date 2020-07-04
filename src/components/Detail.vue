@@ -25,6 +25,7 @@
               </a>
             </li>
           </ul>
+          <div v-if="loadi" id="loading"></div>
           <l-map
             style="height: 570px;  width:100%"
             :zoom="zoom"
@@ -213,6 +214,7 @@ export default {
       name: "",
       description: "",
       ville: null,
+      loadi: false,
       load: false,
       meteod: null,
       temp: null,
@@ -390,7 +392,7 @@ export default {
         });
     },
     getPoi(ville) {
-      console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+      this.loadi = true;
       axios
         .get(
           `https://www.overpass-api.de/api/interpreter?data=[out:json][timeout:60];area["boundary"~"administrative"]["name"~` +
@@ -398,6 +400,7 @@ export default {
             `];node(area)["amenity"~"cafe"];out;`
         )
         .then(res => {
+          this.loadi = false;
           console.log(res.data.elements);
           let poi = res.data.elements;
 
@@ -552,5 +555,27 @@ html {
   width: 25px;
   height: 25px;
   margin-right: 5px;
+}
+
+#loading {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: black;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 </style>
