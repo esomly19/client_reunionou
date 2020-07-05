@@ -254,11 +254,18 @@ export default {
       gettingLocation: false,
       getLoc: false,
       errorStr: null,
-      poilist: []
+      poilist: [],
+      event: null
     };
   },
   props: {},
   methods: {
+    getEvent() {
+      this.event = this.$route.params.token;
+      this.recupevents(this.event.token);
+      this.commentaires();
+      this.participants();
+    },
     gotweet() {
       window.open(this.twitter);
     },
@@ -289,13 +296,10 @@ export default {
           console.log(err);
         });
     },
-    recupevents() {
+    recupevents(toke) {
       this.load = true;
       axios
-        .get(
-          "https://warm-badlands-86536.herokuapp.com/event/" +
-            this.$route.params.token
-        )
+        .get("https://warm-badlands-86536.herokuapp.com/event/" + toke)
         .then(res => {
           console.log("Donnéesddd" + res.data.titre);
           this.center.lat = res.data.x;
@@ -328,7 +332,7 @@ export default {
       axios
         .get(
           "https://warm-badlands-86536.herokuapp.com/participants/" +
-            this.$route.params.token
+            this.event.token
         )
         .then(res => {
           console.log("Données" + res.data);
@@ -346,7 +350,7 @@ export default {
       axios
         .post("https://warm-badlands-86536.herokuapp.com/participe", {
           nom: this.namee,
-          token: this.$route.params.token
+          token: this.event.token
         })
         .then(res => {
           console.log(res.data);
@@ -360,7 +364,7 @@ export default {
       axios
         .get(
           "https://warm-badlands-86536.herokuapp.com/commentaires/" +
-            this.$route.params.token
+            this.event.token
         )
         .then(res => {
           console.log("Données commentaires " + res.data);
@@ -375,7 +379,7 @@ export default {
       axios
         .post("https://warm-badlands-86536.herokuapp.com/comment", {
           nom: this.name,
-          token: this.$route.params.token,
+          token: this.event.token,
           commentaire: this.description
         })
         .then(res => {
@@ -430,9 +434,7 @@ export default {
     }
   },
   mounted() {
-    this.recupevents();
-    this.commentaires();
-    this.participants();
+    this.getEvent();
   },
   created() {
     //do we support geolocation

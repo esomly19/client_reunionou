@@ -1,6 +1,6 @@
 <template>
   <div class="card" style="width: 18rem;">
-    <div class="cardmap" v-on:click="detail(soro.token)">
+    <div class="cardmap" v-on:click="detail(soro)">
       <l-map
         style="height: 200px;  width:100%"
         :zoom="zoom"
