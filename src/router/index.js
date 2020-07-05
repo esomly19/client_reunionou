@@ -9,6 +9,8 @@ import Detail from '../components/Detail.vue'
 import Participe from '../components/Participe.vue'
 import Profil from '../components/profil.vue'
 import infoevent from '../components/infoevent.vue'
+import Modif from '../components/Modif.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -46,6 +48,12 @@ const routes = [
     path: '/infoevent',
     name: 'infoevent',
     component: infoevent, meta: { guest: true }
+  },
+  {
+    path: "/Modif:event",
+    name: 'Modif',
+    component: Modif,
+    meta: { requiresAuth: true }
   },
   {
     path: '/evenement/:token',
