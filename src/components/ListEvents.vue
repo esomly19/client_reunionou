@@ -13,7 +13,7 @@
           <button class="btn btn-outline-dark" v-on:click="recupevents()">Afficher tout</button>
         </div>
         <div class="col-2">
-          <router-link to="/event">
+          <router-link to="/createevent">
             <button class="btn btn-outline-dark">Créer un événement</button>
           </router-link>
         </div>

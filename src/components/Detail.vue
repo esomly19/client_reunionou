@@ -107,7 +107,12 @@
                     <textarea id="name" v-model="description" name="name" />
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-success" v-on:click="commenter">Poster</button>
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      v-on:click="commenter"
+                      data-dismiss="modal"
+                    >Poster</button>
                   </div>
                 </div>
               </div>
@@ -122,12 +127,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th
-                    scope="row"
-                    v-for="participant in participantes"
-                    :key="participant.nom"
-                  >{{ participant.nom }}</th>
+                <tr v-for="participant in participantes" :key="participant.nom">
+                  <td scope="col">{{ participant.nom }}</td>
                 </tr>
               </tbody>
             </table>
@@ -165,7 +166,12 @@
             />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-success" v-on:click="participer">Participer</button>
+            <button
+              type="button"
+              class="btn btn-success"
+              v-on:click="participer"
+              data-dismiss="modal"
+            >Participer</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Ne pas participer</button>
           </div>
         </div>
@@ -344,6 +350,7 @@ export default {
         })
         .then(res => {
           console.log(res.data);
+          this.participants();
         })
         .catch(err => {
           console.log(err);
@@ -373,6 +380,7 @@ export default {
         })
         .then(res => {
           console.log(res.data);
+          this.commentaires();
         })
         .catch(err => {
           console.log(err);

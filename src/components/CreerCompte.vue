@@ -78,9 +78,13 @@ export default {
           })
           .then(res => {
             console.log(res.data);
+            alert(
+              "Inscription réussi, veuillez vous connecter maintenant avec vos identifiants!"
+            );
             this.$router.push({ path: "/connexion" });
           })
           .catch(err => {
+            alert("Inscription échoué!");
             this.$modal.show("err", { erreur: err });
           });
       }

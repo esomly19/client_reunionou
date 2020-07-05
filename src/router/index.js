@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Event from '../components/Event.vue'
 import Connexion from "../components/Connexion.vue"
 import CreerCompte from "../components/CreerCompte.vue"
+import CreateEvent from "../components/createEvent.vue"
 import LEvent from '../components/ListEvents.vue'
 import Detail from '../components/Detail.vue'
 import Participe from '../components/Participe.vue'
@@ -33,6 +34,11 @@ const routes = [
     path: '/levent',
     name: 'Levent',
     component: LEvent, meta: { guest: true }
+  },
+  {
+    path: '/createevent',
+    name: 'createEvenement',
+    component: CreateEvent, meta: { requiresAuth: true }
   },
   {
     path: '/event',
