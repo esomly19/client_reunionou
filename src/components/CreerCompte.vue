@@ -78,6 +78,7 @@ export default {
           })
           .then(res => {
             console.log(res.data);
+            this.$router.push({ path: "/connexion" });
           })
           .catch(err => {
             this.$modal.show("err", { erreur: err });

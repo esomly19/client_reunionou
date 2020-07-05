@@ -2,7 +2,7 @@
   <div class="eventlist">
     <div class="container">
       <div class="row">
-        <div class="col-8">
+        <div class="col-6">
           <input class="form-control width80" type="text" v-model="search" placeholder="Search.." />
         </div>
 
@@ -11,6 +11,11 @@
         </div>
         <div class="col-2">
           <button class="btn btn-outline-dark" v-on:click="recupevents()">Afficher tout</button>
+        </div>
+        <div class="col-2">
+          <router-link to="/event">
+            <button class="btn btn-outline-dark">Créer un événement</button>
+          </router-link>
         </div>
       </div>
     </div>

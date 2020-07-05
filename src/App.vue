@@ -20,7 +20,7 @@
           <router-link class="nav-item nav-link" to="/levent">Evenements</router-link>
 
           <router-link class="nav-item nav-link" to="/profil">Profil</router-link>
-          <p v-if="isConnected()" class="nav-item nav-link" v-on:click="creer">Créer un événement</p>
+          <router-link v-if="isConnected()" class="nav-item nav-link" to="/event">Créer un événement</router-link>
         </div>
       </div>
 

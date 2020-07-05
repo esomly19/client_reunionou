@@ -213,7 +213,7 @@ export default {
   computed: {
     check: function() {
       if (this.publik) {
-        return "publique";
+        return "public";
       } else {
         return "privé";
       }
