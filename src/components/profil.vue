@@ -9,15 +9,20 @@
           </div>
         </div>
         <div class="col">
+          <h2 class="text-center">Mes événements</h2>
           <div class="profile-content">
             <div class="card text-center" v-for="event in events" :key="event.id">
               <div class="card-body">
                 <h5 class="card-title">{{event.titre}}</h5>
-                {{event.description}} {{event.adresse}}
+                {{event.adresse}}
                 <br />
-                <button v-on:click="info(event)" class="btn btn-primary">Plus d'infos</button>
-                <button v-on:click="modifier(event)" class="btn btn-primary">modifier</button>
-                <div class="card-footer text-muted">{{event.date}}</div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button v-on:click="info(event)" class="btn btn-primary">Plus d'infos</button>
+                  <button v-on:click="modifier(event)" class="btn btn-primary">modifier</button>
+                </div>
+                <div
+                  class="card-footer text-muted"
+                >{{new Date(event.date).getDate()}}/{{new Date(event.date).getMonth()}}/{{new Date(event.date).getFullYear()}}</div>
               </div>
             </div>
           </div>
