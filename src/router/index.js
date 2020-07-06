@@ -7,6 +7,7 @@ import CreerCompte from "../components/CreerCompte.vue"
 import CreateEvent from "../components/createEvent.vue"
 import LEvent from '../components/ListEvents.vue'
 import Detail from '../components/Detail.vue'
+import Detail_parti from '../components/Detail_parti.vue'
 import Participe from '../components/Participe.vue'
 import Profil from '../components/profil.vue'
 import infoevent from '../components/infoevent.vue'
@@ -49,6 +50,11 @@ const routes = [
     path: '/event/:token',
     name: 'detail',
     component: Detail, meta: { guest: true }
+  },
+  {
+    path: '/eventparticiper/:id',
+    name: 'Detail_parti',
+    component: Detail_parti, meta: { guest: true }
   },
   {
     path: '/infoevent',

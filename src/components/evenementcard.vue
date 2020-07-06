@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 18rem; margin:5px;">
     <div class="cardmap" v-on:click="detail(soro)">
       <l-map
         style="height: 200px;  width:100%"
@@ -12,7 +12,9 @@
         <l-marker :lat-lng="positionCentre" :draggable="false" :icon="icon"></l-marker>
       </l-map>
       <h5 class="card-title text-center">{{soro.titre}}</h5>
-      <div class="card-footer text-muted">{{soro.date}}</div>
+      <div
+        class="card-footer text-muted text-center"
+      >{{date.getDate()}}/{{date.getMonth()}}/{{date.getFullYear()}}</div>
     </div>
   </div>
 </template>
@@ -37,6 +39,7 @@ export default {
   data: function() {
     return {
       zoom: 10,
+      date: new Date(this.soro.date),
       url:
         "https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png",
       positionCentre: {

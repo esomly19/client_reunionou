@@ -278,17 +278,17 @@ export default {
     return {
       twitter:
         "https://twitter.com/intent/tweet?url=https://reunionouapp.netlify.app/event/" +
-        this.idevebt +
+        this.$route.params.token +
         "&text=Evénement%20crée%20via%20reunionou",
 
       facebook:
         "https://facebook.com/sharer.php?u=https://reunionouapp.netlify.app/event/" +
-        this.idevebt,
+        this.$route.params.token,
       x: 0,
       y: 0,
       events: null,
       message:
-        "https://reunionouapp.netlify.app/eventparticiper/" + this.idevebt,
+        "https://reunionouapp.netlify.app/event/" + this.$route.params.token,
       participantes: null,
       comments: null,
       name: "",
@@ -340,8 +340,8 @@ export default {
   props: {},
   methods: {
     getEvent() {
-      this.event = this.$route.params.token;
-      this.recupevents(this.event.token);
+      this.idevebt = this.$route.params.id;
+      this.recupevents(this.idevebt);
       this.commentaires();
       this.participants();
     },
@@ -405,23 +405,13 @@ export default {
       this.mois = month[this.date.getMonth()];
     },
 
-    recupevents(toke) {
+    recupevents(id) {
       this.load = true;
       axios
-        .get("https://warm-badlands-86536.herokuapp.com/event/" + toke)
+        .get("https://warm-badlands-86536.herokuapp.com/eventid/" + id)
         .then(res => {
           console.log("Donnéesddd" + res.data.titre);
           this.center.lat = res.data.x;
-          this.idevebt = res.data.id;
-          this.message =
-            "https://reunionouapp.netlify.app/eventparticiper/" + this.idevebt;
-          this.facebook =
-            "https://facebook.com/sharer.php?u=https://reunionouapp.netlify.app/event/" +
-            this.idevebt;
-          this.twitter =
-            "https://twitter.com/intent/tweet?url=https://reunionouapp.netlify.app/event/" +
-            this.idevebt +
-            "&text=Evénement%20crée%20via%20reunionou";
           this.center.lng = res.data.y;
           this.date = new Date(res.data.date);
           this.moisd();

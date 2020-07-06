@@ -43,7 +43,7 @@
             class="custom-control-input form-control"
             id="customSwitch1"
           />
-          <label class="custom-control-label form-control" for="customSwitch1">Evénément {{check}}</label>
+          <label class="custom-control-label form-control" for="customSwitch1">Evénement {{check}}</label>
         </div>
       </div>
     </tab-content>
@@ -52,27 +52,17 @@
         <label for="date">Localisation</label>
         <div class="row justify-content-center">
           <div class="col-md-12 mb-3">
-            <l-map style="height: 500px;" :zoom="zoom" :center="center" :markerZoomAnimation="true">
+            <l-map style="height: 450px;" :zoom="zoom" :center="center" :markerZoomAnimation="true">
               <l-tile-layer :url="url"></l-tile-layer>
               <l-marker :lat-lng.sync="positionCentre" :draggable="true" :icon="icon" id="rr"></l-marker>
             </l-map>
 
             <input type="text" placeholder="Entrez votre adresse" v-model="adresse" />
 
-            <button type="button" class="button" v-on:click="getLocation">Marquer !</button>
+            <button type="button" class="button" v-on:click="getLocation">Localiser sur la carte !</button>
             <div v-if="wait">...</div>
             <section v-if="erreur">
               <p>Désolé, mais nous n'avons trouvé aucun résultat pour {{ adresse }}.</p>
-            </section>
-
-            <section v-if="resultats">
-              <div v-if="loading">Chargement...</div>
-              <div v-else v-for="poi in resultats" v-bind:key="poi.address">
-                <h2>Résultats pour {{ adresse }}</h2>
-                <div v-if="poi.address.postcode">
-                  <h3>{{ poi.address.postcode }} {{ poi.address.city }} {{ poi.address.suburb }}</h3>
-                </div>
-              </div>
             </section>
           </div>
         </div>
