@@ -339,6 +339,12 @@ export default {
   },
   props: {},
   methods: {
+    onCopy() {
+      alert("Lien copié");
+    },
+    onError() {
+      alert("Failed to copy texts");
+    },
     getEvent() {
       this.event = this.$route.params.token;
       this.recupevents(this.event.token);
