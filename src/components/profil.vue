@@ -22,7 +22,7 @@
                 </div>
                 <div
                   class="card-footer text-muted"
-                >{{new Date(event.date).getDate()}}/{{new Date(event.date).getMonth()}}/{{new Date(event.date).getFullYear()}}</div>
+                >{{new Date(event.date).getDate()}}/{{new Date(event.date).getMonth()+1}}/{{new Date(event.date).getFullYear()}}</div>
               </div>
             </div>
           </div>

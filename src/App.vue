@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Reunionou</a>
+      <router-link class="navbar-brand" to="/">Reunionou</router-link>
       <button
         class="navbar-toggler"
         type="button"

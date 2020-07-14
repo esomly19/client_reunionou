@@ -209,7 +209,7 @@
                 <p>{{ comment.commentaire }}</p>
                 <p
                   class="comment-time"
-                >{{ datec.getDay() }}/{{ datec.getMonth() }}/{{ datec.getFullYear() }}</p>
+                >{{ datec.getDate() }}/{{ datec.getMonth()+1 }}/{{ datec.getFullYear() }}</p>
               </div>
             </div>
           </div>
