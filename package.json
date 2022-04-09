@@ -23,7 +23,7 @@
     "leaflet": "^1.6.0",
     "leaflet-routing-machine": "^3.2.12",
     "mapbox-gl": "^1.11.0",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "node-sass": "^4.14.1",
     "popper.js": "^1.16.1",
     "sass-loader": "^8.0.2",
